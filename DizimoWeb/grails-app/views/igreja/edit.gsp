@@ -29,13 +29,13 @@
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="doacoes"><g:message code="igreja.doacoes.label" default="Doacoes" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: igrejaInstance, field: 'doacoes', 'errors')}">
-                                    
+
 <ul>
 <g:each in="${igrejaInstance?.doacoes?}" var="d">
     <li><g:link controller="doacoes" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>
@@ -45,7 +45,7 @@
 
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="coordenador"><g:message code="igreja.coordenador.label" default="Coordenador" /></label>
@@ -54,7 +54,7 @@
                                     <g:textField name="coordenador" value="${igrejaInstance?.coordenador}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="nome"><g:message code="igreja.nome.label" default="Nome" /></label>
@@ -63,7 +63,7 @@
                                     <g:textField name="nome" value="${igrejaInstance?.nome}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="endereco"><g:message code="igreja.endereco.label" default="Endereco" /></label>
@@ -72,13 +72,13 @@
                                     <g:select name="endereco.id" from="${br.com.maxinfo.dizimo.Endereco.list()}" optionKey="id" value="${igrejaInstance?.endereco?.id}"  />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="pagardizimos"><g:message code="igreja.pagardizimos.label" default="Pagardizimos" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: igrejaInstance, field: 'pagardizimos', 'errors')}">
-                                    
+
 <ul>
 <g:each in="${igrejaInstance?.pagardizimos?}" var="p">
     <li><g:link controller="pagardizimo" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
@@ -88,7 +88,7 @@
 
                                 </td>
                             </tr>
-                        
+
                         </tbody>
                     </table>
                 </div>

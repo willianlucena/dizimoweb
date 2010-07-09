@@ -5,7 +5,7 @@ class Pagardizimo {
     String mesReferencia
     String anoReferencia
     Date dataPagamento
-    Float valor
+    String valor
 
     static belongsTo = [igreja: Igreja, dizimista: Dizimista]
 
