@@ -1,5 +1,8 @@
 package br.com.maxinfo.dizimo
 
+import br.com.maxinfo.dizimo.Usuario
+import br.com.maxinfo.dizimo.Endereco
+
 class DizimistaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -15,8 +18,10 @@ class DizimistaController {
 
     def create = {
         def dizimistaInstance = new Dizimista()
+        def usuarioInstance = new Usuario()
+        def enderecoInstance = new Endereco()
         dizimistaInstance.properties = params
-        return [dizimistaInstance: dizimistaInstance]
+        return [dizimistaInstance: dizimistaInstance, enderecoInstance:enderecoInstance, usuarioInstance: usuarioInstance]
     }
 
     def save = {

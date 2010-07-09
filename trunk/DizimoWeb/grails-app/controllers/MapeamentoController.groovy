@@ -1,3 +1,5 @@
+import br.com.maxinfo.dizimo.Mapeamento
+
 class MapeamentoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]

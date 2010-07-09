@@ -1,4 +1,4 @@
-
+package br.com.maxinfo.dizimo
 
 /**
  * Request Map domain class.
