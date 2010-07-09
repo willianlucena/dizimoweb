@@ -15,11 +15,15 @@ class IgrejaController {
 
     def create = {
         def igrejaInstance = new Igreja()
+        def enderecoInstance = new Endereco()
         igrejaInstance.properties = params
-        return [igrejaInstance: igrejaInstance]
+        return [igrejaInstance: igrejaInstance, enderecoInstance: enderecoInstance]
     }
 
     def save = {
+        def enderecoInstance = new Endereco(params)
+        enderecoInstance.save(flush: true)
+        params.endereco = enderecoInstance
         def igrejaInstance = new Igreja(params)
         if (igrejaInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'igreja.label', default: 'Igreja'), igrejaInstance.id])}"
@@ -58,7 +62,7 @@ class IgrejaController {
             if (params.version) {
                 def version = params.version.toLong()
                 if (igrejaInstance.version > version) {
-                    
+
                     igrejaInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'igreja.label', default: 'Igreja')] as Object[], "Another user has updated this Igreja while you were editing")
                     render(view: "edit", model: [igrejaInstance: igrejaInstance])
                     return

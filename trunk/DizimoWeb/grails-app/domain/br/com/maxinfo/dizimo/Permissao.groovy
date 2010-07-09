@@ -5,7 +5,7 @@ package br.com.maxinfo.dizimo
  */
 class Permissao {
 
-	static hasMany = [people: Usuario]
+	static hasMany = [people: Usuario, igreja: Igreja]
 
 	/** description */
 	String description
