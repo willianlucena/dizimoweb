@@ -25,6 +25,12 @@ class DizimistaController {
     }
 
     def save = {
+        def enderecoInstance = new Endereco(params)
+        enderecoInstance.save(flush: true)
+        def usuarioInstance = new Usuario(params)
+        usuarioInstance.save(flush: true)
+        params.endereco = enderecoInstance
+        params.usuario = usuarioInstance
         def dizimistaInstance = new Dizimista(params)
         if (dizimistaInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), dizimistaInstance.id])}"

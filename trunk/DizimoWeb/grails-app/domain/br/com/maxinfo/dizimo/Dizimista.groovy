@@ -7,7 +7,7 @@ class Dizimista {
     Date dataPrimeiroPagamento
     Date dataAfastamento
     Usuario usuario
-
+    Endereco endereco
     static hasMany = [pagardizimos: Pagardizimo, doacoes: Doacoes]
     
     static constraints = {
