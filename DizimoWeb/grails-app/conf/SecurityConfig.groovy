@@ -4,7 +4,7 @@ security {
 
 	active = true
 
-	loginUserDomainClass = "Usuario"
-	authorityDomainClass = "Permissao"
-	requestMapClass = "Mapeamento"
+	loginUserDomainClass = "br.com.maxinfo.dizimo.Usuario"
+	authorityDomainClass = "br.com.maxinfo.dizimo.Permissao"
+	requestMapClass = "br.com.maxinfo.dizimo.Mapeamento"
 }

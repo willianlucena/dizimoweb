@@ -31,8 +31,10 @@ class Usuario {
     String orgaoExpedidor
     Date criadaEm
     String telefone
-    Endereco endereco
 
+    String toString(){
+        userRealName
+    }
 //    private List<Usuario> usuarioList;
 //    private List<Administrador> administradorList;
 //    private List<Dizimista> dizimistaList;
