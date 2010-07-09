@@ -1,8 +1,8 @@
 dataSource {
     pooled = true
     driverClassName = "com.mysql.jdbc.Driver"
-    username = "root"
-    password = "root"
+    username = "aluno"
+    password = "aluno"
 }
 hibernate {
     cache.use_second_level_cache=true
@@ -13,7 +13,7 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "update" // one of 'create', 'create-drop','update'
+            dbCreate = "update"// one of 'create', 'create-drop','update'
             url = "jdbc:mysql://localhost/dizimo_web?createDatabaseIfNotExist=true"
         }
     }

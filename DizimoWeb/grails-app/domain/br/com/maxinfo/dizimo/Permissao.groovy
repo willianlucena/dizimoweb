@@ -1,6 +1,4 @@
-
-
-
+package br.com.maxinfo.dizimo
 
 /**
  * Authority domain class.

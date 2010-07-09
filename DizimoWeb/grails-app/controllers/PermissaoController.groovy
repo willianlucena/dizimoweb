@@ -1,3 +1,5 @@
+import br.com.maxinfo.dizimo.Permissao
+
 class PermissaoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]

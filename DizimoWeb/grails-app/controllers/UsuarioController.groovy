@@ -1,3 +1,5 @@
+import br.com.maxinfo.dizimo.Usuario
+
 class UsuarioController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]

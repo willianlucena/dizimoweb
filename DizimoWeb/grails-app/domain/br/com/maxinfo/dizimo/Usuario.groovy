@@ -1,4 +1,4 @@
-import br.com.maxinfo.dizimo.Endereco
+package br.com.maxinfo.dizimo
 
 /**
  * User domain class.
