@@ -9,8 +9,8 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
+            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}">Página Inicial</a></span>
+            <span class="menuButton"><g:link class="list" action="list">Listar Dizimistas</g:link></span>
         </div>
         <div class="body">
             <h1>Cadastrar Dizimista</h1>
@@ -53,15 +53,6 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'passwd', 'errors')}">
                                     <g:textField name="passwd" value="${usuarioInstance?.passwd}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label>Ativo: </label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'enabled', 'errors')}">
-                                    <g:checkBox name="enabled" value="${usuarioInstance?.enabled}" />
                                 </td>
                             </tr>
 
@@ -167,6 +158,15 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                    <label>Estado: </label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'estado', 'errors')}">
+                                    <g:textField name="estado" value="${enderecoInstance?.estado}" />
+                                </td>
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                     <label>País: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'pais', 'errors')}">
@@ -174,15 +174,6 @@
                                 </td>
                             </tr>
 
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label>Estado: </label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'estado', 'errors')}">
-                                    <g:textField name="estado" value="${enderecoInstance?.estado}" />
-                                </td>
-                            </tr>
 
 <!--FIM Endereço LABEL-->
 
@@ -196,14 +187,6 @@
                                     <g:datePicker name="dataCasamento" precision="day" value="${dizimistaInstance?.dataCasamento}"  />
                                 </td>
                             </tr>
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="dataPrimeiroPagamento"><g:message code="dizimista.dataPrimeiroPagamento.label" default="Data Primeiro Pagamento" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: dizimistaInstance, field: 'dataPrimeiroPagamento', 'errors')}">
-                                    <g:datePicker name="dataPrimeiroPagamento" precision="day" value="${dizimistaInstance?.dataPrimeiroPagamento}"  />
-                                </td>
-                            </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -214,20 +197,12 @@
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="dataAfastamento"><g:message code="dizimista.dataAfastamento.label" default="Data Afastamento" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: dizimistaInstance, field: 'dataAfastamento', 'errors')}">
-                                    <g:datePicker name="dataAfastamento" precision="day" value="${dizimistaInstance?.dataAfastamento}"  />
-                                </td>
-                            </tr>
                         <!--FIM Dizimista Label-->
                         </tbody>
                     </table>
                 </div>
                 <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
+                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create  ')}" /></span>
                 </div>
             </g:form>
         </div>

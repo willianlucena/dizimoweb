@@ -11,5 +11,7 @@ class Dizimista {
     static hasMany = [pagardizimos: Pagardizimo, doacoes: Doacoes]
     
     static constraints = {
+        dataAfastamento(nullable:true)
+        dataPrimeiroPagamento(nullable:true)
     }
 }

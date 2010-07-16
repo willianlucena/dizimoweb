@@ -22,6 +22,9 @@ class PagardizimoController {
     def save = {
         def pagardizimoInstance = new Pagardizimo(params)
         if (pagardizimoInstance.save(flush: true)) {
+            def d = Dizimista.get(pagardizimoInstance.dizimista.id)
+            d.datadataPrimeiroPagamento = new Date()
+            d.save(flush: true)
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'pagardizimo.label', default: 'Pagardizimo'), pagardizimoInstance.id])}"
             redirect(action: "show", id: pagardizimoInstance.id)
         }

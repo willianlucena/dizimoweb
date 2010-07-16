@@ -1,17 +1,18 @@
 
+<%@ page import="br.com.maxinfo.dizimo.Endereco" %>
+<%@ page import="br.com.maxinfo.dizimo.Usuario" %>
 <%@ page import="br.com.maxinfo.dizimo.Dizimista" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'dizimista.label', default: 'Dizimista')}" />
-        <title><g:message code="default.show.label" args="[entityName]" /></title>
+        <title>Detalhes do Dizimista</title>
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}">Página Inicial</a></span>
+            <span class="menuButton"><g:link class="list" action="list">Listar Dizimistas</g:link></span>
+            <span class="menuButton"><g:link class="create" action="create">Cadastrar Dizimista</g:link></span>
         </div>
         <div class="body">
             <h1><g:message code="default.show.label" args="[entityName]" /></h1>
@@ -23,6 +24,134 @@
                     <tbody>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.username.label" default="Username" /></td>
+
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "username")}</td>
+
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.userRealName.label" default="User Real Name" /></td>
+
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "userRealName")}</td>
+
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.enabled.label" default="Enabled" /></td>
+
+                            <td valign="top" class="value"><g:formatBoolean boolean="${usuarioInstance?.enabled}" /></td>
+
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.orgaoExpedidor.label" default="Orgao Expedidor" /></td>
+
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "orgaoExpedidor")}</td>
+
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.criadaEm.label" default="Criada Em" /></td>
+
+                            <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.criadaEm}" /></td>
+
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.email.label" default="Email" /></td>
+
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "email")}</td>
+
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.description.label" default="Description" /></td>
+
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "description")}</td>
+
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.telefone.label" default="Telefone" /></td>
+
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "telefone")}</td>
+
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.dataNascimento.label" default="Data Nascimento" /></td>
+
+                            <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataNascimento}" /></td>
+
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.identidade.label" default="Identidade" /></td>
+
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "identidade")}</td>
+
+                        </tr>
+
+                       
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="endereco.complemento.label" default="Complemento" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "complemento")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="endereco.pais.label" default="Pais" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "pais")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="endereco.numero.label" default="Numero" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "numero")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="endereco.bairro.label" default="Bairro" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "bairro")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="endereco.cidade.label" default="Cidade" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "cidade")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="endereco.cep.label" default="Cep" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "cep")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="endereco.estado.label" default="Estado" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "estado")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="endereco.logradouro.label" default="Logradouro" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "logradouro")}</td>
+                            
+                        </tr>
+
+                      <tr class="prop">
                             <td valign="top" class="name"><g:message code="dizimista.id.label" default="Id" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: dizimistaInstance, field: "id")}</td>

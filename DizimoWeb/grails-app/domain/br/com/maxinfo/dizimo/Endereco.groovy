@@ -8,11 +8,10 @@ class Endereco {
     String complemento
     String bairro
     String cidade
-    String codCidade
     String estado
     String pais
-    String codPais
 
     static constraints = {
+
     }
 }

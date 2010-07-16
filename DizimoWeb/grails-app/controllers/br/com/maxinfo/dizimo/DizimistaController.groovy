@@ -26,12 +26,20 @@ class DizimistaController {
 
     def save = {
         def enderecoInstance = new Endereco(params)
-        enderecoInstance.save(flush: true)
+        println "endereço: " + enderecoInstance.save(flush: true)
+        enderecoInstance.errors.each{
+            println it
+        }
+        params.criadaEm = new Date()
         def usuarioInstance = new Usuario(params)
-        usuarioInstance.save(flush: true)
+        println "usuario: " + usuarioInstance.save(flush: true)
+        usuarioInstance.errors.each{
+            println it
+        }
         params.endereco = enderecoInstance
         params.usuario = usuarioInstance
         def dizimistaInstance = new Dizimista(params)
+        println(params)
         if (dizimistaInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), dizimistaInstance.id])}"
             redirect(action: "show", id: dizimistaInstance.id)
@@ -43,45 +51,54 @@ class DizimistaController {
 
     def show = {
         def dizimistaInstance = Dizimista.get(params.id)
+        def enderecoInstance = Endereco.get(dizimistaInstance.endereco.id)
+        def usuarioInstance = Usuario.get(dizimistaInstance.usuario.id)
+        
         if (!dizimistaInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), params.id])}"
             redirect(action: "list")
         }
         else {
-            [dizimistaInstance: dizimistaInstance]
+            [dizimistaInstance: dizimistaInstance, enderecoInstance: enderecoInstance, usuarioInstance: usuarioInstance]
         }
     }
 
     def edit = {
+        def enderecoInstance = Endereco.get(params.id)
+        def usuarioInstance = Usuario.get(params.id)
         def dizimistaInstance = Dizimista.get(params.id)
         if (!dizimistaInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), params.id])}"
             redirect(action: "list")
         }
         else {
-            return [dizimistaInstance: dizimistaInstance]
+            return [dizimistaInstance: dizimistaInstance, enderecoInstance: enderecoInstance, usuarioInstance: usuarioInstance]
         }
     }
 
     def update = {
+        def enderecoInstance = Endereco.get(params.id)
+        def usuarioInstance = Usuario.get(params.id)
         def dizimistaInstance = Dizimista.get(params.id)
         if (dizimistaInstance) {
             if (params.version) {
                 def version = params.version.toLong()
                 if (dizimistaInstance.version > version) {
                     
-                    dizimistaInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'dizimista.label', default: 'Dizimista')] as Object[], "Another user has updated this Dizimista while you were editing")
-                    render(view: "edit", model: [dizimistaInstance: dizimistaInstance])
+                    dizimistaInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'dizimista.label', default: 'Dizimista')] as Object[], "Outro Usário está atualizando enqunto ")
+                    render(view: "edit", model: [dizimistaInstance: dizimistaInstance, enderecoInstance: enderecoInstance, usuarioInstance: usuarioInstance])
                     return
                 }
             }
+            enderecoInstance.properties = params
+            usuarioInstance.properties = params
             dizimistaInstance.properties = params
             if (!dizimistaInstance.hasErrors() && dizimistaInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), dizimistaInstance.id])}"
                 redirect(action: "show", id: dizimistaInstance.id)
             }
             else {
-                render(view: "edit", model: [dizimistaInstance: dizimistaInstance])
+                render(view: "edit", model: [dizimistaInstance: dizimistaInstance, , enderecoInstance: enderecoInstance, usuarioInstance: usuarioInstance])
             }
         }
         else {
