@@ -21,6 +21,8 @@ class IgrejaController {
     }
 
     def save = {
+        def usuarioInstance = Usuario.get(1L)
+        params.coordenador =  usuarioInstance
         def enderecoInstance = new Endereco(params)
         enderecoInstance.save(flush: true)
         params.endereco = enderecoInstance

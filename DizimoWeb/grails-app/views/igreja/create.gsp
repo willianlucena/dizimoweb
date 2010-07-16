@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="layout" content="main" />
   <g:set var="entityName" value="${message(code: 'igreja.label', default: 'Igreja')}" />
-  <title><g:message code="default.create.label" args="[entityName]" /></title>
+  <title>Nova Igreja</title>
 </head>
 <body>
   <div class="nav">
@@ -38,7 +38,7 @@
 
           <tr class="prop">
             <td valign="top" class="name">
-              <label for="nome"><g:message code="igreja.nome.label" default="Nome" /></label>
+              <label for="nome"><g:message code="igreja.nome.label" default="Nome da Igreja" /></label>
             </td>
             <td valign="top" class="value ${hasErrors(bean: igrejaInstance, field: 'nome', 'errors')}">
           <g:textField name="nome" value="${igrejaInstance?.nome}" />

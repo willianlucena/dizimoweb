@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'igreja.label', default: 'Igreja')}" />
-        <title><g:message code="default.list.label" args="[entityName]" /></title>
+        <title>Igrejas Cadastradas</title>
     </head>
     <body>
         <div class="nav">
@@ -42,7 +42,7 @@
 
                             <td>${fieldValue(bean: igrejaInstance, field: "nome")}</td>
 
-                            <td>${fieldValue(bean: igrejaInstance, field: "endereco")}</td>
+                            <td>${igrejaInstance.endereco.logradouro}, ${igrejaInstance.endereco.numero} - ${igrejaInstance.endereco.bairro}, ${igrejaInstance.endereco.cidade}-${igrejaInstance.endereco.estado}, ${igrejaInstance.endereco.pais}</td>
 
                         </tr>
                     </g:each>
