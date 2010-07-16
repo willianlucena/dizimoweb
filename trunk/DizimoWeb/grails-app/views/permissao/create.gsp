@@ -32,7 +32,7 @@
                                     <label for="authority"><g:message code="permissao.authority.label" default="Authority" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: permissaoInstance, field: 'authority', 'errors')}">
-                                    <g:textField name="authority" value="${permissaoInstance?.authority}" />
+                                    <input type="text" name="authority" value="${permissaoInstance?.authority}" />
                                 </td>
                             </tr>
                         
@@ -41,7 +41,7 @@
                                     <label for="description"><g:message code="permissao.description.label" default="Description" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: permissaoInstance, field: 'description', 'errors')}">
-                                    <g:textField name="description" value="${permissaoInstance?.description}" />
+                                    <input type="text" name="description" value="${permissaoInstance?.description}" />
                                 </td>
                             </tr>
                         

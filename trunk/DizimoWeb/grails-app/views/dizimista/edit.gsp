@@ -217,7 +217,7 @@
                                   <label>Nome do Conjuge: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: dizimistaInstance, field: 'nomeConjuge', 'errors')}">
-                                    <g:textField name="nomeConjuge" value="${dizimistaInstance?.nomeConjuge}" />
+                                    <input type="text" name="nomeConjuge" value="${dizimistaInstance?.nomeConjuge}" />
                                 </td>
                             </tr>
                         

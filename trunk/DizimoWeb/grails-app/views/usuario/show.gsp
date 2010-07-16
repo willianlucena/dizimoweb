@@ -44,13 +44,6 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.passwd.label" default="Passwd" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "passwd")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.enabled.label" default="Enabled" /></td>
                             
                             <td valign="top" class="value"><g:formatBoolean boolean="${usuarioInstance?.enabled}" /></td>
@@ -85,26 +78,12 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.emailShow.label" default="Email Show" /></td>
-                            
-                            <td valign="top" class="value"><g:formatBoolean boolean="${usuarioInstance?.emailShow}" /></td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.email.label" default="Email" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "email")}</td>
                             
                         </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.description.label" default="Description" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "description")}</td>
-                            
-                        </tr>
-                    
+                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.telefone.label" default="Telefone" /></td>
                             
@@ -120,23 +99,9 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.endereco.label" default="Endereco" /></td>
-                            
-                            <td valign="top" class="value"><g:link controller="endereco" action="show" id="${usuarioInstance?.endereco?.id}">${usuarioInstance?.endereco?.encodeAsHTML()}</g:link></td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.identidade.label" default="Identidade" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "identidade")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.pass.label" default="Pass" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "pass")}</td>
                             
                         </tr>
                     

@@ -34,7 +34,7 @@
                                     <label>Login de Usuário: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'username', 'errors')}">
-                                    <g:textField name="username" value="${usuarioInstance?.username}" />
+                                    <input type="text" name="username" value="${usuarioInstance?.username}" />
                                 </td>
                             </tr>
 
@@ -43,7 +43,7 @@
                                     <label>Nome Completo: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'userRealName', 'errors')}">
-                                    <g:textField name="userRealName" value="${usuarioInstance?.userRealName}" />
+                                    <input type="text" name="userRealName" value="${usuarioInstance?.userRealName}" />
                                 </td>
                             </tr>
 
@@ -52,7 +52,7 @@
                                     <label>Senha: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'passwd', 'errors')}">
-                                    <g:textField name="passwd" value="${usuarioInstance?.passwd}" />
+                                    <input type="text" name="passwd" value="${usuarioInstance?.passwd}" />
                                 </td>
                             </tr>
 
@@ -61,7 +61,7 @@
                                     <label>Identidade: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'identidade', 'errors')}">
-                                    <g:textField name="identidade" value="${usuarioInstance?.identidade}" />
+                                    <input type="text" name="identidade" value="${usuarioInstance?.identidade}" />
                                 </td>
                             </tr>
 
@@ -70,7 +70,7 @@
                                   <label>Orgão Expedidor: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'orgaoExpedidor', 'errors')}">
-                                    <g:textField name="orgaoExpedidor" value="${usuarioInstance?.orgaoExpedidor}" />
+                                    <input type="text" name="orgaoExpedidor" value="${usuarioInstance?.orgaoExpedidor}" />
                                 </td>
                             </tr>
 
@@ -79,7 +79,7 @@
                                   <label>Email: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'email', 'errors')}">
-                                    <g:textField name="email" value="${usuarioInstance?.email}" />
+                                    <input type="text" name="email" value="${usuarioInstance?.email}" />
                                 </td>
                             </tr>
 
@@ -88,7 +88,7 @@
                                   <label>Telefone: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'telefone', 'errors')}">
-                                    <g:textField name="telefone" value="${usuarioInstance?.telefone}" />
+                                    <input type="text" name="telefone" value="${usuarioInstance?.telefone}" />
                                 </td>
                             </tr>
 
@@ -106,7 +106,7 @@
                                     <label>Cep: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'cep', 'errors')}">
-                                    <g:textField name="cep" value="${enderecoInstance?.cep}" />
+                                    <input type="text" name="cep" value="${enderecoInstance?.cep}" />
                                 </td>
                             </tr>
                             <tr class="prop">
@@ -114,7 +114,7 @@
                                   <label>Rua: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'logradouro', 'errors')}">
-                                    <g:textField name="logradouro" value="${enderecoInstance?.logradouro}" />
+                                    <input type="text" name="logradouro" value="${enderecoInstance?.logradouro}" />
                                 </td>
 
                             </tr>
@@ -124,7 +124,7 @@
                                   <label>Número: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'numero', 'errors')}">
-                                    <g:textField name="numero" value="${enderecoInstance?.numero}" />
+                                    <input type="text" name="numero" value="${enderecoInstance?.numero}" />
                                 </td>
                             </tr>
 
@@ -133,7 +133,7 @@
                                     <label>Bairro:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'bairro', 'errors')}">
-                                    <g:textField name="bairro" value="${enderecoInstance?.bairro}" />
+                                    <input type="text" name="bairro" value="${enderecoInstance?.bairro}" />
                                 </td>
                             </tr>
 
@@ -143,7 +143,7 @@
                                   <label>Complemento: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'complemento', 'errors')}">
-                                    <g:textField name="complemento" value="${enderecoInstance?.complemento}" />
+                                    <input type="text" name="complemento" value="${enderecoInstance?.complemento}" />
                                 </td>
                             </tr>
 
@@ -152,7 +152,7 @@
                                   <label>Cidade: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'cidade', 'errors')}">
-                                    <g:textField name="cidade" value="${enderecoInstance?.cidade}" />
+                                    <input type="text" name="cidade" value="${enderecoInstance?.cidade}" />
                                 </td>
                             </tr>
 
@@ -161,7 +161,7 @@
                                     <label>Estado: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'estado', 'errors')}">
-                                    <g:textField name="estado" value="${enderecoInstance?.estado}" />
+                                    <input type="text" name="estado" value="${enderecoInstance?.estado}" />
                                 </td>
                             </tr>
 
@@ -170,7 +170,7 @@
                                     <label>País: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'pais', 'errors')}">
-                                    <g:textField name="pais" value="${enderecoInstance?.pais}" />
+                                    <input type="text" name="pais" value="${enderecoInstance?.pais}" />
                                 </td>
                             </tr>
 
@@ -193,7 +193,7 @@
                                     <label for="nomeConjuge"><g:message code="dizimista.nomeConjuge.label" default="Nome Conjuge" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: dizimistaInstance, field: 'nomeConjuge', 'errors')}">
-                                    <g:textField name="nomeConjuge" value="${dizimistaInstance?.nomeConjuge}" />
+                                    <input type="text" name="nomeConjuge" value="${dizimistaInstance?.nomeConjuge}" />
                                 </td>
                             </tr>
                         

@@ -35,7 +35,7 @@
                                   <label for="codCidade"><g:message code="endereco.codCidade.label" default="Cod Cidade" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'codCidade', 'errors')}">
-                                    <g:textField name="codCidade" value="${enderecoInstance?.codCidade}" />
+                                    <input type="text" name="codCidade" value="${enderecoInstance?.codCidade}" />
                                 </td>
                             </tr>
                         
@@ -44,7 +44,7 @@
                                   <label for="complemento"><g:message code="endereco.complemento.label" default="Complemento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'complemento', 'errors')}">
-                                    <g:textField name="complemento" value="${enderecoInstance?.complemento}" />
+                                    <input type="text" name="complemento" value="${enderecoInstance?.complemento}" />
                                 </td>
                             </tr>
                         
@@ -53,7 +53,7 @@
                                   <label for="pais"><g:message code="endereco.pais.label" default="Pais" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'pais', 'errors')}">
-                                    <g:textField name="pais" value="${enderecoInstance?.pais}" />
+                                    <input type="text" name="pais" value="${enderecoInstance?.pais}" />
                                 </td>
                             </tr>
                         
@@ -62,7 +62,7 @@
                                   <label for="numero"><g:message code="endereco.numero.label" default="Numero" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'numero', 'errors')}">
-                                    <g:textField name="numero" value="${enderecoInstance?.numero}" />
+                                    <input type="text" name="numero" value="${enderecoInstance?.numero}" />
                                 </td>
                             </tr>
                         
@@ -71,7 +71,7 @@
                                   <label for="bairro"><g:message code="endereco.bairro.label" default="Bairro" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'bairro', 'errors')}">
-                                    <g:textField name="bairro" value="${enderecoInstance?.bairro}" />
+                                    <input type="text" name="bairro" value="${enderecoInstance?.bairro}" />
                                 </td>
                             </tr>
                         
@@ -80,7 +80,7 @@
                                   <label for="cidade"><g:message code="endereco.cidade.label" default="Cidade" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'cidade', 'errors')}">
-                                    <g:textField name="cidade" value="${enderecoInstance?.cidade}" />
+                                    <input type="text" name="cidade" value="${enderecoInstance?.cidade}" />
                                 </td>
                             </tr>
                         
@@ -89,7 +89,7 @@
                                   <label for="cep"><g:message code="endereco.cep.label" default="Cep" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'cep', 'errors')}">
-                                    <g:textField name="cep" value="${enderecoInstance?.cep}" />
+                                    <input type="text" name="cep" value="${enderecoInstance?.cep}" />
                                 </td>
                             </tr>
                         
@@ -98,7 +98,7 @@
                                   <label for="estado"><g:message code="endereco.estado.label" default="Estado" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'estado', 'errors')}">
-                                    <g:textField name="estado" value="${enderecoInstance?.estado}" />
+                                    <input type="text" name="estado" value="${enderecoInstance?.estado}" />
                                 </td>
                             </tr>
                         
@@ -107,7 +107,7 @@
                                   <label for="codPais"><g:message code="endereco.codPais.label" default="Cod Pais" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'codPais', 'errors')}">
-                                    <g:textField name="codPais" value="${enderecoInstance?.codPais}" />
+                                    <input type="text" name="codPais" value="${enderecoInstance?.codPais}" />
                                 </td>
                             </tr>
                         
@@ -116,7 +116,7 @@
                                   <label for="logradouro"><g:message code="endereco.logradouro.label" default="Logradouro" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'logradouro', 'errors')}">
-                                    <g:textField name="logradouro" value="${enderecoInstance?.logradouro}" />
+                                    <input type="text" name="logradouro" value="${enderecoInstance?.logradouro}" />
                                 </td>
                             </tr>
                         
