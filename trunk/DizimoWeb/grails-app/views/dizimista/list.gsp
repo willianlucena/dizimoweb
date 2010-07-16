@@ -1,19 +1,20 @@
 
 <%@ page import="br.com.maxinfo.dizimo.Dizimista" %>
+<%@ page import="br.com.maxinfo.dizimo.Endereco" %>
+<%@ page import="br.com.maxinfo.dizimo.Usuario" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'dizimista.label', default: 'Dizimista')}" />
-        <title><g:message code="default.list.label" args="[entityName]" /></title>
+        <title>Lista de Dizimistas</title>
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}">Página Inicial</a></span>
+            <span class="menuButton"><g:link class="create" action="create">Cadastrar Dizimista</g:link></span>
         </div>
         <div class="body">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+            <h1>Lista de Dizimistas</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -21,7 +22,7 @@
                 <table>
                     <thead>
                         <tr>
-                        
+
                             <g:sortableColumn property="id" title="${message(code: 'dizimista.id.label', default: 'Id')}" />
                         
                             <th><g:message code="dizimista.usuario.label" default="Usuario" /></th>
