@@ -28,7 +28,7 @@
                         
                             <g:sortableColumn property="userRealName" title="${message(code: 'usuario.userRealName.label', default: 'User Real Name')}" />
                         
-                            <g:sortableColumn property="passwd" title="${message(code: 'usuario.passwd.label', default: 'Passwd')}" />
+                            
                         
                             <g:sortableColumn property="enabled" title="${message(code: 'usuario.enabled.label', default: 'Enabled')}" />
                         
@@ -45,9 +45,7 @@
                             <td>${fieldValue(bean: usuarioInstance, field: "username")}</td>
                         
                             <td>${fieldValue(bean: usuarioInstance, field: "userRealName")}</td>
-                        
-                            <td>${fieldValue(bean: usuarioInstance, field: "passwd")}</td>
-                        
+                                                    
                             <td><g:formatBoolean boolean="${usuarioInstance.enabled}" /></td>
                         
                             <td>${fieldValue(bean: usuarioInstance, field: "orgaoExpedidor")}</td>

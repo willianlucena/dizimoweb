@@ -41,7 +41,7 @@
                                     <label for="valor"><g:message code="pagardizimo.valor.label" default="Valor" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'valor', 'errors')}">
-                                    <g:textField name="valor" value="${fieldValue(bean: pagardizimoInstance, field: 'valor')}" />
+                                    <input type="text" name="valor" value="${fieldValue(bean: pagardizimoInstance, field: 'valor')}" />
                                 </td>
                             </tr>
                         
@@ -50,7 +50,7 @@
                                     <label for="anoReferencia"><g:message code="pagardizimo.anoReferencia.label" default="Ano Referencia" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'anoReferencia', 'errors')}">
-                                    <g:textField name="anoReferencia" value="${pagardizimoInstance?.anoReferencia}" />
+                                    <input type="text" name="anoReferencia" value="${pagardizimoInstance?.anoReferencia}" />
                                 </td>
                             </tr>
                         
@@ -59,7 +59,7 @@
                                     <label for="mesReferencia"><g:message code="pagardizimo.mesReferencia.label" default="Mes Referencia" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'mesReferencia', 'errors')}">
-                                    <g:textField name="mesReferencia" value="${pagardizimoInstance?.mesReferencia}" />
+                                    <input type="text" name="mesReferencia" value="${pagardizimoInstance?.mesReferencia}" />
                                 </td>
                             </tr>
                         

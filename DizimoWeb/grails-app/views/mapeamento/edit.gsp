@@ -35,7 +35,7 @@
                                   <label for="url"><g:message code="mapeamento.url.label" default="Url" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: mapeamentoInstance, field: 'url', 'errors')}">
-                                    <g:textField name="url" value="${mapeamentoInstance?.url}" />
+                                    <input type="text" name="url" value="${mapeamentoInstance?.url}" />
                                 </td>
                             </tr>
                         
@@ -44,7 +44,7 @@
                                   <label for="configAttribute"><g:message code="mapeamento.configAttribute.label" default="Config Attribute" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: mapeamentoInstance, field: 'configAttribute', 'errors')}">
-                                    <g:textField name="configAttribute" value="${mapeamentoInstance?.configAttribute}" />
+                                    <input type="text" name="configAttribute" value="${mapeamentoInstance?.configAttribute}" />
                                 </td>
                             </tr>
                         

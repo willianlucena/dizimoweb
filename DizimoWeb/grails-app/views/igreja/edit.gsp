@@ -51,7 +51,7 @@
                                   <label for="coordenador"><g:message code="igreja.coordenador.label" default="Coordenador" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: igrejaInstance, field: 'coordenador', 'errors')}">
-                                    <g:textField name="coordenador" value="${igrejaInstance?.coordenador}" />
+                                    <input type="text" name="coordenador" value="${igrejaInstance?.coordenador}" />
                                 </td>
                             </tr>
 
@@ -60,7 +60,7 @@
                                   <label for="nome"><g:message code="igreja.nome.label" default="Nome" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: igrejaInstance, field: 'nome', 'errors')}">
-                                    <g:textField name="nome" value="${igrejaInstance?.nome}" />
+                                    <input type="text" name="nome" value="${igrejaInstance?.nome}" />
                                 </td>
                             </tr>
 

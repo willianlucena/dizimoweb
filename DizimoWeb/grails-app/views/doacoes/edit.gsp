@@ -35,7 +35,7 @@
                                   <label for="valor"><g:message code="doacoes.valor.label" default="Valor" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: doacoesInstance, field: 'valor', 'errors')}">
-                                    <g:textField name="valor" value="${doacoesInstance?.valor}" />
+                                    <input type="text" name="valor" value="${doacoesInstance?.valor}" />
                                 </td>
                             </tr>
                         
@@ -62,7 +62,7 @@
                                   <label for="descricao"><g:message code="doacoes.descricao.label" default="Descricao" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: doacoesInstance, field: 'descricao', 'errors')}">
-                                    <g:textField name="descricao" value="${doacoesInstance?.descricao}" />
+                                    <input type="text" name="descricao" value="${doacoesInstance?.descricao}" />
                                 </td>
                             </tr>
                         
