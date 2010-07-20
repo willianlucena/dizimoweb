@@ -64,9 +64,9 @@ class DizimistaController {
     }
 
     def edit = {
-        def enderecoInstance = Endereco.get(params.id)
-        def usuarioInstance = Usuario.get(params.id)
         def dizimistaInstance = Dizimista.get(params.id)
+        def enderecoInstance = Endereco.get(dizimistaInstance.endereco.id)
+        def usuarioInstance = Usuario.get(dizimistaInstance.usuario.id)
         if (!dizimistaInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), params.id])}"
             redirect(action: "list")
@@ -90,9 +90,9 @@ class DizimistaController {
                     return
                 }
             }
+            dizimistaInstance.properties = params
             enderecoInstance.properties = params
             usuarioInstance.properties = params
-            dizimistaInstance.properties = params
             if (!dizimistaInstance.hasErrors() && dizimistaInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), dizimistaInstance.id])}"
                 redirect(action: "show", id: dizimistaInstance.id)
