@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Welcome to Grails</title>
+        <title>...::: Sistema de Gerenciamento do Dizimo :::...</title>
 		<meta name="layout" content="main" />
 		<style type="text/css" media="screen">
 
@@ -57,7 +57,21 @@
 
 				</div>
 				<div class="panelBody">
-					<h1>Application Status</h1>
+                                  <h1>Menu Principal</h1>
+                                  <ul>
+
+                                        <li class="controller"><g:link controller="dizimista">Administrar Dizimistas</g:link></li>
+                                        <li class="controller"><g:link controller="igreja">Administrar Igrejas</g:link></li>
+                                        <li class="controller"><g:link controller="pagardizimo">Receber Pagamento</g:link></li>
+                                        <li class="controller"><g:link controller="doacoes">Receber Doações</g:link></li>
+                                        <li class="controller"><g:link controller="mapeamento">Administrar Mapeamentos</g:link></li>
+                                        <li class="controller"><g:link controller="permissao">Administrar Permissões</g:link></li>
+                                        <li class="controller"><g:link controller="usuario">Administrar Usuários</g:link></li>
+                                        <li class="controller"><g:link controller="endereco">Administrar Endereços</g:link></li>
+                                        <li class="controller"><g:link controller="login">Login</g:link></li>
+                                        <li class="controller"><g:link controller="logout">Sair</g:link></li>
+                                  </ul>
+<!--					<h1>Application Status</h1>
 					<ul>
 						<li>App version: <g:meta name="app.version"></g:meta></li>
 						<li>Grails version: <g:meta name="app.grails.version"></g:meta></li>
@@ -76,7 +90,7 @@
 							<li>${plugin.name} - ${plugin.version}</li>
 						</g:each>
 
-					</ul>
+					</ul>-->
 				</div>
 				<div class="panelBtm">
 				</div>
@@ -85,19 +99,19 @@
 
 		</div>
 		<div id="pageBody">
-	        <h1>Welcome to Grails</h1>
-	        <p>Congratulations, you have successfully started your first Grails application! At the moment
-	        this is the default page, feel free to modify it to either redirect to a controller or display whatever
-	        content you may choose. Below is a list of controllers that are currently deployed in this application,
-	        click on each to execute its default action:</p>
+	        <h1>Sistema de Gerenciamento de Dizimo</h1>
+	        <p>Parabéns por adquirir nosso Sistema de Gerenciamento de Dizimo,
+                  com ele você poderá cadastrar dizimista, verificar situação financeira,
+                  verificar e imprimir aniversariantes do mês (Nascimento e Casamento) e muito mais. vale apena conferir.
+                </p>
 
 	        <div id="controllerList" class="dialog">
-				<h2>Available Controllers:</h2>
+<!--				<h2>Available Controllers:</h2>
 	            <ul>
 	              <g:each var="c" in="${grailsApplication.controllerClasses}">
 	                    <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
 	              </g:each>
-	            </ul>
+	            </ul>-->
 	        </div>
 		</div>
     </body>

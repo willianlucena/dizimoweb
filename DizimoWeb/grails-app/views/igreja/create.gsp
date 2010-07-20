@@ -45,14 +45,6 @@
           </td>
           </tr>
 
-          <tr class="prop">
-            <td valign="top" class="name">
-              <label for="codCidade"><g:message code="endereco.codCidade.label" default="Cod Cidade" /></label>
-            </td>
-            <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'codCidade', 'errors')}">
-          <input type="text" name="codCidade" value="${enderecoInstance?.codCidade}" />
-          </td>
-          </tr>
 
           <tr class="prop">
             <td valign="top" class="name">
@@ -119,15 +111,6 @@
 
           <tr class="prop">
             <td valign="top" class="name">
-              <label for="codPais"><g:message code="endereco.codPais.label" default="Cod Pais" /></label>
-            </td>
-            <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'codPais', 'errors')}">
-          <input type="text" name="codPais" value="${enderecoInstance?.codPais}" />
-          </td>
-          </tr>
-
-          <tr class="prop">
-            <td valign="top" class="name">
               <label for="logradouro"><g:message code="endereco.logradouro.label" default="Logradouro" /></label>
             </td>
             <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'logradouro', 'errors')}">
@@ -139,7 +122,7 @@
         </table>
       </div>
       <div class="buttons">
-        <span class="button"><g:submitButton name="create" class="save" value="Criar" /></span>
+        <span class="button"><g:submitButton name="create" class="save" value="Cadastrar" /></span>
       </div>
     </g:form>
   </div>
