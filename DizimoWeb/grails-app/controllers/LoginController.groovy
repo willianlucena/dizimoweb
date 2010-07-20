@@ -46,9 +46,11 @@ class LoginController {
 		nocache response
 
 		if (isLoggedIn()) {
-			redirect uri: '/'
+			redirect uri: '/index.gsp'
 			return
-		}
+		//}else {
+                  //  render(view: login)
+                }
 
 		String view
 		String postUrl
