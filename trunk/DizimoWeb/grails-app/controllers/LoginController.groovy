@@ -48,8 +48,8 @@ class LoginController {
 		if (isLoggedIn()) {
 			redirect uri: '/index.gsp'
 			return
-		//}else {
-                  //  render(view: login)
+		}else {
+                    render(view: 'login')
                 }
 
 		String view
