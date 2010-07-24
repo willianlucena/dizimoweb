@@ -38,7 +38,7 @@ class UsuarioController {
             } else {
                 try {
                     // primeiro, elimine essa pessoa da tabela 'permissao_people'
-                    Permissao.findAll().each { it.removeFromUsuario(usuarioInstance) }
+                    Permissao.findAll().each { it.removeFromPeople(usuarioInstance) }
                     usuarioInstance.delete(flush: true)
                     flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
                     redirect(action: "list")
@@ -88,7 +88,7 @@ class UsuarioController {
         }
         
         if (!usuarioInstance.hasErrors() && usuarioInstance.save(flush: true)) {
-            Permissao.findAll().each { it.removeFromUsuario(usuarioInstance) }
+            Permissao.findAll().each { it.removeFromPeople(usuarioInstance) }
             addRoles(usuarioInstance)
             redirect(action: "show", id: usuarioInstance.id)
         }
@@ -121,7 +121,7 @@ class UsuarioController {
     private void addRoles(usuarioInstance) {
         for (String key in params.keySet()) {
             if (key.contains('ROLE') && 'on' == params.get(key)) {
-                Permissao.findByAuthority(key).addToUsuario(usuarioInstance)
+                Permissao.findByAuthority(key).addToPeople(usuarioInstance)
             }
         }
     }

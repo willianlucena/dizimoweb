@@ -96,6 +96,19 @@
               <input type="text" name="identidade" value="${usuarioInstance?.identidade}" />
             </td>
           </tr>
+          
+          <tr class="prop">
+              <td valign="top" class="name"><label for="authorities">Permissões:</label></td>
+              <td valign="top" class="value ${hasErrors(bean:person,field:'authorities','errors')}">
+                  <ul>
+                      <g:each var="entry" in="${roleMap}">
+                          <li>${entry.key.authority.encodeAsHTML()}
+                              <g:checkBox name="${entry.key.authority}" value="${entry.value}"/>
+                          </li>
+                      </g:each>
+                  </ul>
+              </td>
+              </tr>
 
           </tbody>
         </table>
