@@ -70,7 +70,7 @@
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
                                 <g:each in="${usuarioInstance.authorities}" var="a">
-                                    <li><g:link controller="permissao" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></li>
+                                    <li><g:link controller="permissao" action="show" id="${a.id}">${a?.authority?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
                             </td>

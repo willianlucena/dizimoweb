@@ -94,6 +94,16 @@
             </td>
           </tr>
 
+          <tr class="prop">
+              <td valign="top" class="name" align="left">Permissões:</td>
+          </tr>
+          <g:each in="${authorityList}">
+              <tr>
+                  <td valign="top" class="name" align="left">${it.authority.encodeAsHTML()}</td>
+                  <td align="left"><g:checkBox name="${it.authority}"/></td>
+              </tr>
+          </g:each>
+
           </tbody>
         </table>
       </div>
