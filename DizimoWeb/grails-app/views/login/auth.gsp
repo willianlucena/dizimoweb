@@ -1,5 +1,5 @@
 <head>
-<meta name='layout' content='main' />
+<meta name='layout' content='main2' />
 <title>...::: Sistema de Gerenciamento do Dizimo :::...</title>
 <style type='text/css' media='screen'>
 #login {
