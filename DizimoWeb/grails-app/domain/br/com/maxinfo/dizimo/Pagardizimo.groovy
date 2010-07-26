@@ -10,5 +10,6 @@ class Pagardizimo {
     static belongsTo = [igreja: Igreja, dizimista: Dizimista]
 
     static constraints = {
+        anoReferencia(inList:["2010","2011","2012"])
     }
 }
