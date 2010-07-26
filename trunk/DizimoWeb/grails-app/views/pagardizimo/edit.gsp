@@ -53,7 +53,7 @@
                                   <label for="anoReferencia"><g:message code="pagardizimo.anoReferencia.label" default="Ano Referencia" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'anoReferencia', 'errors')}">
-                                    <input type="text" name="anoReferencia" value="${pagardizimoInstance?.anoReferencia}" />
+                                    <g:select name="anoReferencia" from="${pagardizimoInstance.constraints.anoReferencia.inList}" value="${pagardizimoInstance?.anoReferencia}"/>
                                 </td>
                             </tr>
                         
