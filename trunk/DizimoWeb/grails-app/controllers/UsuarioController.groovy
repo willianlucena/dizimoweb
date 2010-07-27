@@ -104,6 +104,7 @@ class UsuarioController {
     }
 
     def save = {
+		//TODO: implementar o relacionamento de igreja e user.
         params.passwd = authenticateService.encodePassword(params.passwd)
         params.enabled = true
         params.criadaEm = new Date()
