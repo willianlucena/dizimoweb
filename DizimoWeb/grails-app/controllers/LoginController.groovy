@@ -8,7 +8,7 @@ import org.springframework.security.ui.AbstractProcessingFilter
 import org.springframework.security.ui.webapp.AuthenticationProcessingFilter
 
 /**
- * Login Controller (Example).
+     * Login Controller (Example).
  */
 class LoginController {
 
@@ -31,7 +31,7 @@ class LoginController {
 
 	def index = {
 		if (isLoggedIn()) {
-			redirect uri: '/'
+			redirect uri: '/index.gsp'
 		}
 		else {
 			redirect action: auth, params: params
@@ -46,7 +46,7 @@ class LoginController {
 		nocache response
 
 		if (isLoggedIn()) {
-			redirect uri: '/index.gsp'
+			redirect uri: '/'
 			return
 		}else {
                     render(view: 'login')

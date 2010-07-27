@@ -11,8 +11,8 @@
       <div id="spinner" class="spinner" style="display:none;">
             <img src="${resource(dir:'images',file:'spinner.gif')}" alt="Spinner" />
         </div>
-        <div id="grailsLogo" class="logo"><a href="http://grails.org"><img src="${resource(dir:'images',file:'grails_logo.png')}" alt="Grails" border="0" /></a></div>
-		<div id="nav">
+        <div id="grailsLogo" class="logo" align="middle"><a href="#"><img src="${resource(dir:'images',file:'dizimo.png')}" alt="Sistema de Gerenciamento do Dizimo" border="0" /></a></div>
+		<div id="naveg">
 			<div class="homePagePanel">
 				<div class="panelTop">
 
