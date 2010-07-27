@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="${resource(dir:'css',file:'main.css')}" />
         <link rel="stylesheet" href="${resource(dir:'css',file:'main2.css')}" />
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery-1.4.1.js')}" ></script>
         <g:layoutHead />
         <g:javascript library="application" />
     </head>
@@ -14,9 +15,7 @@
         <div id="grailsLogo" class="logo" align="middle"><a href="#"><img src="${resource(dir:'images',file:'dizimo.png')}" alt="Sistema de Gerenciamento do Dizimo" border="0" /></a></div>
 		<div id="naveg">
 			<div class="homePagePanel">
-				<div class="panelTop">
 
-				</div>
 				<div class="panelBody">
                                   <h1>Menu Principal</h1>
                                   <ul>

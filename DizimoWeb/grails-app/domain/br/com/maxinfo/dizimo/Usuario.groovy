@@ -31,6 +31,7 @@ class Usuario {
     String orgaoExpedidor
     Date criadaEm
     String telefone
+	Igreja igreja
 
     String toString(){
         userRealName

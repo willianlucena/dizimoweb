@@ -4,7 +4,8 @@ import br.com.maxinfo.dizimo.Usuario
 import br.com.maxinfo.dizimo.Endereco
 
 class DizimistaController {
-
+	
+	def authenticateService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index = {
@@ -31,6 +32,8 @@ class DizimistaController {
             println it
         }
         params.criadaEm = new Date()
+		params.passwd = authenticateService.encodePassword(params.passwd)
+		//TODO: implementar o relacionamento de igreja e user.
         def usuarioInstance = new Usuario(params)
         println "usuario: " + usuarioInstance.save(flush: true)
         usuarioInstance.errors.each{

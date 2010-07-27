@@ -31,9 +31,8 @@ class LoginController {
 
 	def index = {
 		if (isLoggedIn()) {
-			redirect uri: '/index.gsp'
-		}
-		else {
+			redirect uri: '/'
+		} else {
 			redirect action: auth, params: params
 		}
 	}
@@ -45,6 +44,7 @@ class LoginController {
 
 		nocache response
 
+		
 		if (isLoggedIn()) {
 			redirect uri: '/'
 			return
