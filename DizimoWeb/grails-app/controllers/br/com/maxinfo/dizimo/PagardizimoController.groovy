@@ -20,6 +20,8 @@ class PagardizimoController {
     }
 
     def save = {
+        println params
+        
         def pagardizimoInstance = new Pagardizimo(params)
         if (pagardizimoInstance.save(flush: true)) {
             def d = Dizimista.get(pagardizimoInstance.dizimista.id)
