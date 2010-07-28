@@ -24,15 +24,15 @@
                         
                             <g:sortableColumn property="id" title="${message(code: 'endereco.id.label', default: 'Id')}" />
                         
-                            <g:sortableColumn property="codCidade" title="${message(code: 'endereco.codCidade.label', default: 'Cod Cidade')}" />
+                            <g:sortableColumn property="bairro" title="${message(code: 'endereco.bairro.label', default: 'Bairro')}" />
+                        
+                            <g:sortableColumn property="cep" title="${message(code: 'endereco.cep.label', default: 'Cep')}" />
+                        
+                            <g:sortableColumn property="cidade" title="${message(code: 'endereco.cidade.label', default: 'Cidade')}" />
                         
                             <g:sortableColumn property="complemento" title="${message(code: 'endereco.complemento.label', default: 'Complemento')}" />
                         
-                            <g:sortableColumn property="pais" title="${message(code: 'endereco.pais.label', default: 'Pais')}" />
-                        
-                            <g:sortableColumn property="numero" title="${message(code: 'endereco.numero.label', default: 'Numero')}" />
-                        
-                            <g:sortableColumn property="bairro" title="${message(code: 'endereco.bairro.label', default: 'Bairro')}" />
+                            <g:sortableColumn property="estado" title="${message(code: 'endereco.estado.label', default: 'Estado')}" />
                         
                         </tr>
                     </thead>
@@ -42,15 +42,15 @@
                         
                             <td><g:link action="show" id="${enderecoInstance.id}">${fieldValue(bean: enderecoInstance, field: "id")}</g:link></td>
                         
-                            <td>${fieldValue(bean: enderecoInstance, field: "codCidade")}</td>
+                            <td>${fieldValue(bean: enderecoInstance, field: "bairro")}</td>
+                        
+                            <td>${fieldValue(bean: enderecoInstance, field: "cep")}</td>
+                        
+                            <td>${fieldValue(bean: enderecoInstance, field: "cidade")}</td>
                         
                             <td>${fieldValue(bean: enderecoInstance, field: "complemento")}</td>
                         
-                            <td>${fieldValue(bean: enderecoInstance, field: "pais")}</td>
-                        
-                            <td>${fieldValue(bean: enderecoInstance, field: "numero")}</td>
-                        
-                            <td>${fieldValue(bean: enderecoInstance, field: "bairro")}</td>
+                            <td>${fieldValue(bean: enderecoInstance, field: "estado")}</td>
                         
                         </tr>
                     </g:each>

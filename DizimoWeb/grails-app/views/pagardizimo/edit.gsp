@@ -33,16 +33,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="dataPagamento"><g:message code="pagardizimo.dataPagamento.label" default="Data Pagamento" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'dataPagamento', 'errors')}">
-                                    <!--<g:datePicker name="dataPagamento" precision="day" value="${pagardizimoInstance?.dataPagamento}"  />-->
-                                    <calendar:datePicker name="dataPagamento" value="${pagardizimoInstance?.dataPagamento}" dateFormat="%d/%m/%Y %H:%M" showTime="true" ></calendar:datePicker>
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                   <label for="valor"><g:message code="pagardizimo.valor.label" default="Valor" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'valor', 'errors')}">
@@ -64,7 +54,7 @@
                                   <label for="mesReferencia"><g:message code="pagardizimo.mesReferencia.label" default="Mes Referencia" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'mesReferencia', 'errors')}">
-                                    <input type="text" name="mesReferencia" value="${pagardizimoInstance?.mesReferencia}" />
+                                    <g:select name="mesReferencia" from="${pagardizimoInstance.constraints.mesReferencia.inList}" value="${pagardizimoInstance?.mesReferencia}"/>
                                 </td>
                             </tr>
                         

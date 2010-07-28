@@ -36,14 +36,12 @@ class Usuario {
     String toString(){
         userRealName
     }
-//    private List<Usuario> usuarioList;
-//    private List<Administrador> administradorList;
-//    private List<Dizimista> dizimistaList;
 
 	static constraints = {
 		username(blank: false, unique: true)
 		userRealName(blank: false)
 		passwd(blank: false)
 		enabled()
+		igreja(nullable:true)
 	}
 }

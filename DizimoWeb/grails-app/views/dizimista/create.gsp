@@ -52,7 +52,7 @@
                                     <label>Senha: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'passwd', 'errors')}">
-                                    <input type="text" name="passwd" value="${usuarioInstance?.passwd}" />
+                                    <input type="password" name="passwd" value="${usuarioInstance?.passwd}" />
                                 </td>
                             </tr>
 

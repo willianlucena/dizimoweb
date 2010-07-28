@@ -6,7 +6,7 @@ import org.springframework.security.DisabledException
 import org.springframework.security.context.SecurityContextHolder as SCH
 import org.springframework.security.ui.AbstractProcessingFilter
 import org.springframework.security.ui.webapp.AuthenticationProcessingFilter
-
+import br.com.maxinfo.dizimo.Usuario
 /**
      * Login Controller (Example).
  */
@@ -43,14 +43,17 @@ class LoginController {
 	def auth = {
 
 		nocache response
-
 		
 		if (isLoggedIn()) {
-			redirect uri: '/'
+			session.user = Usuario.get(authenticateService.userDomain().id)
+			println session.user
+			if (session.igreja == null) {
+				session.igreja = session.user.igreja
+			}
+			println session.igreja
+			redirect(controller: "dizimista")
 			return
-		}else {
-                    render(view: 'login')
-                }
+        }
 
 		String view
 		String postUrl

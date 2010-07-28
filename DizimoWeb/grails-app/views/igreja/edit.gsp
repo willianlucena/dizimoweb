@@ -48,28 +48,10 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="coordenador"><g:message code="igreja.coordenador.label" default="Coordenador" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: igrejaInstance, field: 'coordenador', 'errors')}">
-                                    <input type="text" name="coordenador" value="${igrejaInstance?.coordenador}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                   <label for="nome"><g:message code="igreja.nome.label" default="Nome" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: igrejaInstance, field: 'nome', 'errors')}">
                                     <input type="text" name="nome" value="${igrejaInstance?.nome}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="endereco"><g:message code="igreja.endereco.label" default="Endereco" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: igrejaInstance, field: 'endereco', 'errors')}">
-                                    <g:select name="endereco.id" from="${br.com.maxinfo.dizimo.Endereco.list()}" optionKey="id" value="${igrejaInstance?.endereco?.id}"  />
                                 </td>
                             </tr>
 
