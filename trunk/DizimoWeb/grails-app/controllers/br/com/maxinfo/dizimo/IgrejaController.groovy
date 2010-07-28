@@ -1,5 +1,8 @@
 package br.com.maxinfo.dizimo
 
+import grails.converters.JSON
+import org.grails.plugins.springsecurity.service.AuthenticateService
+
 class IgrejaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -103,4 +106,22 @@ class IgrejaController {
             redirect(action: "list")
         }
     }
+	
+	def igrejaAjax = {
+		println params
+		
+		def query = {
+			ilike("nome","%"+params.q+"%")
+		}
+
+		def igreja = Igreja.createCriteria().list(query)
+
+		println "igrejas: " + igreja
+		if (igreja) {
+			render igreja as JSON
+		} else {
+			response.sendError(400, "Igreja não encontrada!");
+		}
+	}
+	
 }

@@ -42,13 +42,6 @@
                         </tr>
 
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="igreja.coordenador.label" default="Coordenador" /></td>
-
-                            <td valign="top" class="value">${fieldValue(bean: igrejaInstance, field: "coordenador")}</td>
-
-                        </tr>
-
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="igreja.nome.label" default="Nome" /></td>
 
                             <td valign="top" class="value">${fieldValue(bean: igrejaInstance, field: "nome")}</td>

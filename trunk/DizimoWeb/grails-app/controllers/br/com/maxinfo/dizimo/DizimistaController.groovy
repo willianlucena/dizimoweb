@@ -2,6 +2,8 @@ package br.com.maxinfo.dizimo
 
 import br.com.maxinfo.dizimo.Usuario
 import br.com.maxinfo.dizimo.Endereco
+import grails.converters.JSON
+import org.grails.plugins.springsecurity.service.AuthenticateService
 
 class DizimistaController {
 	
@@ -32,18 +34,20 @@ class DizimistaController {
             println it
         }
         params.criadaEm = new Date()
+		params.igreja = session.igreja
 		params.passwd = authenticateService.encodePassword(params.passwd)
 		//TODO: implementar o relacionamento de igreja e user.
         def usuarioInstance = new Usuario(params)
-        println "usuario: " + usuarioInstance.save(flush: true)
-        usuarioInstance.errors.each{
-            println it
-        }
+        usuarioInstance.save(flush: true)
+//        usuarioInstance.errors.each{
+//            println it
+//        }
         params.endereco = enderecoInstance
         params.usuario = usuarioInstance
         def dizimistaInstance = new Dizimista(params)
         println(params)
         if (dizimistaInstance.save(flush: true)) {
+			Permissao.findByAuthority("ROLE_DIZIMISTA").addToPeople(usuarioInstance)
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), dizimistaInstance.id])}"
             redirect(action: "show", id: dizimistaInstance.id)
         }
@@ -128,4 +132,27 @@ class DizimistaController {
             redirect(action: "list")
         }
     }
+	
+	
+	//AJAX
+	def dizimistaAjax = {
+		println params
+		def query = {
+			eq("igreja", session.igreja)
+			and{
+				ilike("userRealName","%"+params.q+"%")
+				authorities{eq("authority","ROLE_DIZIMISTA")}
+			}
+		}
+
+		def dizimista = Usuario.createCriteria().list(query)
+
+		//def users = 
+		println "dizimistas: " + dizimista
+		if (dizimista) {
+			render dizimista as JSON
+		} else {
+			response.sendError(400, "Dizimista não encontrado!");
+		}
+	}
 }

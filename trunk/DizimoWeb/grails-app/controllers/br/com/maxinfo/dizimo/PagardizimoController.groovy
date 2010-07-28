@@ -1,5 +1,8 @@
 package br.com.maxinfo.dizimo
 
+import java.text.SimpleDateFormat
+import java.text.DateFormat
+
 class PagardizimoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -21,16 +24,18 @@ class PagardizimoController {
 
     def save = {
         println params
-        
+		def user = Usuario.get(Long.parseLong(params.dizimistaId))
+		def dizimista  = Dizimista.findByUsuario(user)
+		params.dizimista = dizimista
+		params.igreja = Igreja.get(Long.parseLong(params.igrejaId))
+		params.dataPagamento = new Date()
         def pagardizimoInstance = new Pagardizimo(params)
         if (pagardizimoInstance.save(flush: true)) {
-            def d = Dizimista.get(pagardizimoInstance.dizimista.id)
-            d.datadataPrimeiroPagamento = new Date()
-            d.save(flush: true)
+            dizimista.dataPrimeiroPagamento = new Date()
+            dizimista.save(flush: true)
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'pagardizimo.label', default: 'Pagardizimo'), pagardizimoInstance.id])}"
             redirect(action: "show", id: pagardizimoInstance.id)
-        }
-        else {
+        } else {
             render(view: "create", model: [pagardizimoInstance: pagardizimoInstance])
         }
     }
@@ -40,8 +45,7 @@ class PagardizimoController {
         if (!pagardizimoInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'pagardizimo.label', default: 'Pagardizimo'), params.id])}"
             redirect(action: "list")
-        }
-        else {
+        } else {
             [pagardizimoInstance: pagardizimoInstance]
         }
     }
@@ -51,8 +55,7 @@ class PagardizimoController {
         if (!pagardizimoInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'pagardizimo.label', default: 'Pagardizimo'), params.id])}"
             redirect(action: "list")
-        }
-        else {
+        } else {
             return [pagardizimoInstance: pagardizimoInstance]
         }
     }
@@ -73,12 +76,10 @@ class PagardizimoController {
             if (!pagardizimoInstance.hasErrors() && pagardizimoInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'pagardizimo.label', default: 'Pagardizimo'), pagardizimoInstance.id])}"
                 redirect(action: "show", id: pagardizimoInstance.id)
-            }
-            else {
+            } else {
                 render(view: "edit", model: [pagardizimoInstance: pagardizimoInstance])
             }
-        }
-        else {
+        } else {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'pagardizimo.label', default: 'Pagardizimo'), params.id])}"
             redirect(action: "list")
         }
@@ -91,13 +92,11 @@ class PagardizimoController {
                 pagardizimoInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'pagardizimo.label', default: 'Pagardizimo'), params.id])}"
                 redirect(action: "list")
-            }
-            catch (org.springframework.dao.DataIntegrityViolationException e) {
+            } catch (org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'pagardizimo.label', default: 'Pagardizimo'), params.id])}"
                 redirect(action: "show", id: params.id)
             }
-        }
-        else {
+        } else {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'pagardizimo.label', default: 'Pagardizimo'), params.id])}"
             redirect(action: "list")
         }

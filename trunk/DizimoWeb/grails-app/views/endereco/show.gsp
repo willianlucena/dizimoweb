@@ -30,44 +30,9 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="endereco.codCidade.label" default="Cod Cidade" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "codCidade")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="endereco.complemento.label" default="Complemento" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "complemento")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="endereco.pais.label" default="Pais" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "pais")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="endereco.numero.label" default="Numero" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "numero")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="endereco.bairro.label" default="Bairro" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "bairro")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="endereco.cidade.label" default="Cidade" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "cidade")}</td>
                             
                         </tr>
                     
@@ -79,6 +44,20 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="endereco.cidade.label" default="Cidade" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "cidade")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="endereco.complemento.label" default="Complemento" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "complemento")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="endereco.estado.label" default="Estado" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "estado")}</td>
@@ -86,16 +65,23 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="endereco.codPais.label" default="Cod Pais" /></td>
+                            <td valign="top" class="name"><g:message code="endereco.logradouro.label" default="Logradouro" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "codPais")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "logradouro")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="endereco.logradouro.label" default="Logradouro" /></td>
+                            <td valign="top" class="name"><g:message code="endereco.numero.label" default="Numero" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "logradouro")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "numero")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="endereco.pais.label" default="Pais" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "pais")}</td>
                             
                         </tr>
                     

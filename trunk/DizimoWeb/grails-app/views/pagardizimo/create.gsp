@@ -4,8 +4,72 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <calendar:resources lang="br" theme="tiger"/>
+        <link type="text/css" rel="stylesheet" href="${createLinkTo(dir:'css',file:'jquery.autocomplete.css')}"></link>
+        <link type="text/css" rel="stylesheet" href="${createLinkTo(dir:'css',file:'jquery-ui-1.8.custom.css')}"></link>
+        
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery-1.4.2.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.autocomplete.js')}" ></script>
+        
+            <script type="text/javascript">
+			$(document).ready(function(){
+				
+      			$("#dizimista").autocomplete(
+				    "${resource(dir:'')}/dizimista/dizimistaAjax"
+				    ,{ 
+						  dataType:"json"
+						, minChars:2
+					    , formatItem: function(data,i,max,value,term){
+					        return value;
+					    }
+					    , parse: function(data){
+					        var dizi = new Array();
+					        for(var i=0;i<data.length;i++){
+					        	dizi[dizi.length] = { data:data[i], value:data[i].userRealName, result:data[i].userRealName};
+								
+						    }
+					        return dizi;
+					     }
+				    }).result(function(e,data){
+						$("#dizimistaId").val(data.id);
+					});
+
+      			$("#igreja").autocomplete(
+    				    "${resource(dir:'')}/igreja/igrejaAjax"
+    				    ,{ 
+    						  dataType:"json"
+    						, minChars:2
+    					    , formatItem: function(data,i,max,value,term){
+    					        return value;
+    					    }
+    					    , parse: function(data){
+    					        var ig = new Array();
+    					        for(var i=0;i<data.length;i++){
+    					        	ig[ig.length] = { data:data[i], value:data[i].nome, result:data[i].nome};
+    								
+    						    }
+    					        return ig;
+    					     }
+    				    }).result(function(e,data){
+    						$("#igrejaId").val(data.id);
+    					});
+    	  	});
+
+	  		$(function() {
+	    		$(".data").datepicker();
+	    	});
+	  		
+	        $(function(){
+	  			$(".money").priceFormat({
+		  		    prefix: 'R$ ',
+		  		    centsSeparator: ',',
+		  		    thousandsSeparator: '.'
+		  		});
+	        });
+
+    	</script>
+        
         <g:set var="entityName" value="${message(code: 'pagardizimo.label', default: 'Pagardizimo')}" />
+        <calendar:resources lang="br" theme="tiger"/>
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -30,16 +94,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="dataPagamento"><g:message code="pagardizimo.dataPagamento.label" default="Data Pagamento" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'dataPagamento', 'errors')}">
-                                    <!--<g:datePicker name="dataPagamento" precision="day" value="${pagardizimoInstance?.dataPagamento}"  />-->
-                                    <calendar:datePicker name="dataPagamento" value="${pagardizimoInstance?.dataPagamento}" dateFormat="%d/%m/%Y %H:%M" showTime="false" ></calendar:datePicker>
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                     <label for="valor"><g:message code="pagardizimo.valor.label" default="Valor" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'valor', 'errors')}">
@@ -61,8 +115,7 @@
                                     <label for="mesReferencia"><g:message code="pagardizimo.mesReferencia.label" default="Mes Referencia" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'mesReferencia', 'errors')}">
-                                    <!--<input type="text" name="mesReferencia" value="${pagardizimoInstance?.mesReferencia}" />-->
-                                    <g:datePicker name="mesReferencia" precision="year" value="${pagardizimoInstance?.mesReferencia}"  />
+                                    <g:select name="mesReferencia" from="${pagardizimoInstance.constraints.mesReferencia.inList}" value="${pagardizimoInstance?.mesReferencia}"/>
                                 </td>
                             </tr>
                         
@@ -71,7 +124,9 @@
                                     <label for="igreja"><g:message code="pagardizimo.igreja.label" default="Igreja" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'igreja', 'errors')}">
-                                    <g:select name="igreja.id" from="${br.com.maxinfo.dizimo.Igreja.list()}" optionKey="id" value="${pagardizimoInstance?.igreja?.id}"  />
+<!--                                    <g:select name="igreja.id" from="${br.com.maxinfo.dizimo.Igreja.list()}" optionKey="id" value="${pagardizimoInstance?.igreja?.id}"  />-->
+									<input type="text" name="igreja" id="igreja" />
+		                        	<input type="hidden" name="igrejaId" id="igrejaId" />
                                 </td>
                             </tr>
                         
@@ -80,7 +135,9 @@
                                     <label for="dizimista"><g:message code="pagardizimo.dizimista.label" default="Dizimista" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'dizimista', 'errors')}">
-                                    <g:select name="dizimista.id" from="${br.com.maxinfo.dizimo.Dizimista.list()}" optionKey="id" value="${pagardizimoInstance?.dizimista?.id}"  />
+<!--                                    <g:select name="dizimista.id" from="${br.com.maxinfo.dizimo.Dizimista.list()}" optionKey="id" value="${pagardizimoInstance?.dizimista?.id}"  />-->
+									<input type="text" name="dizimista" id="dizimista" />
+		                        	<input type="hidden" name="dizimistaId" id="dizimistaId" />
                                 </td>
                             </tr>
                         
