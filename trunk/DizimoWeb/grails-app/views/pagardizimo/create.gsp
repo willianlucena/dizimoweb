@@ -4,6 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
+        <calendar:resources lang="br" theme="tiger"/>
         <g:set var="entityName" value="${message(code: 'pagardizimo.label', default: 'Pagardizimo')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
@@ -32,7 +33,8 @@
                                     <label for="dataPagamento"><g:message code="pagardizimo.dataPagamento.label" default="Data Pagamento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'dataPagamento', 'errors')}">
-                                    <g:datePicker name="dataPagamento" precision="day" value="${pagardizimoInstance?.dataPagamento}"  />
+                                    <!--<g:datePicker name="dataPagamento" precision="day" value="${pagardizimoInstance?.dataPagamento}"  />-->
+                                    <calendar:datePicker name="dataPagamento" value="${pagardizimoInstance?.dataPagamento}" dateFormat="%d/%m/%Y %H:%M" showTime="false" ></calendar:datePicker>
                                 </td>
                             </tr>
                         
@@ -59,7 +61,8 @@
                                     <label for="mesReferencia"><g:message code="pagardizimo.mesReferencia.label" default="Mes Referencia" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'mesReferencia', 'errors')}">
-                                    <input type="text" name="mesReferencia" value="${pagardizimoInstance?.mesReferencia}" />
+                                    <!--<input type="text" name="mesReferencia" value="${pagardizimoInstance?.mesReferencia}" />-->
+                                    <g:datePicker name="mesReferencia" precision="year" value="${pagardizimoInstance?.mesReferencia}"  />
                                 </td>
                             </tr>
                         
