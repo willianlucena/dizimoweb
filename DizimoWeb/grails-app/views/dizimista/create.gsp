@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        
+        <calendar:resources lang="br" theme="tiger"/>
         <title>Cadastrar Dizimista</title>
     </head>
     <body>
@@ -97,7 +97,7 @@
                                   <label>Data Nascimento: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataNascimento', 'errors')}">
-                                    <g:datePicker name="dataNascimento" precision="day" value="${usuarioInstance?.dataNascimento}"  />
+                                    <calendar:datePicker name="dataNascimento" value="${usuarioInstance?.dataNascimento}" dateFormat="%d/%m/%Y %H:%M" showTime="false" ></calendar:datePicker>
                                 </td>
                             </tr>
 
@@ -181,10 +181,18 @@
                         <!--Inicio Dizimista Label-->
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                  <label>Se for casado. . .</label>
+                                </td>
+                                <td valign="top" class="value">
+                                </td>
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                     <label for="dataCasamento"><g:message code="dizimista.dataCasamento.label" default="Data Casamento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: dizimistaInstance, field: 'dataCasamento', 'errors')}">
-                                    <g:datePicker name="dataCasamento" precision="day" value="${dizimistaInstance?.dataCasamento}"  />
+                                    <calendar:datePicker name="dataCasamento" value="${dizimistaInstance?.dataCasamento}" dateFormat="%d/%m/%Y %H:%M" showTime="false" ></calendar:datePicker>
                                 </td>
                             </tr>
                         

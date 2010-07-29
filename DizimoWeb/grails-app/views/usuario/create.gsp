@@ -4,6 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="layout" content="main" />
+    <calendar:resources lang="br" theme="tiger"/>
   <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
   <title><g:message code="default.create.label" args="[entityName]" /></title>
 </head>
@@ -48,7 +49,6 @@
               </td>
             </tr>
 
-
             <tr class="prop">
               <td valign="top" class="name">
                 <label for="orgaoExpedidor"><g:message code="usuario.orgaoExpedidor.label" default="Orgao Expedidor" /></label>
@@ -81,7 +81,7 @@
                 <label for="dataNascimento"><g:message code="usuario.dataNascimento.label" default="Data Nascimento" /></label>
               </td>
               <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataNascimento', 'errors')}">
-                <g:datePicker name="dataNascimento" precision="day" value="${usuarioInstance?.dataNascimento}"  />
+                <calendar:datePicker name="dataNascimento" value="${usuarioInstance?.dataNascimento}" dateFormat="%d/%m/%Y %H:%M" showTime="false" ></calendar:datePicker>
               </td>
             </tr>
 

@@ -12,7 +12,7 @@
       <div id="spinner" class="spinner" style="display:none;">
             <img src="${resource(dir:'images',file:'spinner.gif')}" alt="Spinner" />
         </div>
-        <div id="grailsLogo" class="logo" align="middle"><a href="#"><img src="${resource(dir:'images',file:'dizimo.png')}" alt="Sistema de Gerenciamento do Dizimo" border="0" /></a></div>
+        <div id="grailsLogo" class="logo" align="middle"><a class="home" href="${createLink(uri: '/')}"><img src="${resource(dir:'images',file:'dizimo.png')}" alt="Sistema de Gerenciamento do Dizimo" border="0" /></a></div>
 		<div id="naveg">
 			<div class="homePagePanel">
 
@@ -27,8 +27,8 @@
                                   </ul>
                                         <h1>Menu Financeiro</h1>
                                         <ul>
-                                        <li class="controller"><g:link controller="pagardizimo">Receber Pagamento</g:link></li>
-                                        <li class="controller"><g:link controller="doacoes">Receber Doações</g:link></li>
+                                        <li class="controller"><g:link controller="pagardizimo" action="create">Receber Pagamento</g:link></li>
+                                        <li class="controller"><g:link controller="doacoes" action="create">Receber Doações</g:link></li>
                                         </ul>
                                         <h1>Menu Administrativo</h1>
                                         <ul>
