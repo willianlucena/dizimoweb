@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="${resource(dir:'css',file:'main.css')}" />
         <link rel="stylesheet" href="${resource(dir:'css',file:'main2.css')}" />
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
-        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery-1.4.1.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery-1.4.2.js')}" ></script>
         <g:layoutHead />
         <g:javascript library="application" />
     </head>

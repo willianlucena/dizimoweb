@@ -23,13 +23,6 @@
                     <tbody>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="doacoes.id.label" default="Id" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: doacoesInstance, field: "id")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="doacoes.valor.label" default="Valor" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: doacoesInstance, field: "valor")}</td>
@@ -39,7 +32,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="doacoes.data.label" default="Data" /></td>
                             
-                            <td valign="top" class="value"><g:formatDate date="${doacoesInstance?.data}" /></td>
+                            <td valign="top" class="value"><g:formatDate date="${doacoesInstance?.data}" type="datetime" style="LONG" timeStyle="SHORT"/></td>
                             
                         </tr>
                     

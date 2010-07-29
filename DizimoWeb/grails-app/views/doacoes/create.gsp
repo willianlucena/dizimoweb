@@ -4,8 +4,50 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="layout" content="main" />
-		<calendar:resources lang="br" theme="tiger"/>
+		 <link type="text/css" rel="stylesheet" href="${createLinkTo(dir:'css',file:'jquery.autocomplete.css')}"></link>
+        <link type="text/css" rel="stylesheet" href="${createLinkTo(dir:'css',file:'jquery-ui-1.8.custom.css')}"></link>
+        
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery-1.4.2.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery-ui.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.bgiframe.min.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.autocomplete.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.price_format.1.3.js')}" ></script>
+
 		<title>Doacao</title>
+		
+		    <script type="text/javascript">
+			$(document).ready(function(){
+		
+      			$("#igreja").autocomplete(
+    				    "${resource(dir:'')}/igreja/igrejaAjax"
+    				    ,{ 
+    						  dataType:"json"
+    						, minChars:2
+    					    , formatItem: function(data,i,max,value,term){
+    					        return value;
+    					    }
+    					    , parse: function(data){
+    					        var ig = new Array();
+    					        for(var i=0;i<data.length;i++){
+    					        	ig[ig.length] = { data:data[i], value:data[i].nome, result:data[i].nome};
+    								
+    						    }
+    					        return ig;
+    					     }
+    				    }).result(function(e,data){
+    						$("#igrejaId").val(data.id);
+    					});
+    	  	});
+
+	        $(function(){
+	  			$(".money").priceFormat({
+		  		    prefix: 'R$ ',
+		  		    centsSeparator: ',',
+		  		    thousandsSeparator: '.'
+		  		});
+	        });
+
+    	</script>
 	</head>
 	<body>
 		<div class="nav">
@@ -28,30 +70,21 @@
 						<tbody>
 				
 							<tr class="prop">
-								<td valign="top" class="name"><label for="valor"><g:message
-									code="doacoes.valor.label" default="Valor" /></label></td>
-								<td valign="top"
-									class="value ${hasErrors(bean: doacoesInstance, field: 'valor', 'errors')}">
-								<input type="text" name="valor" value="${doacoesInstance?.valor}" />
+								<td valign="top" class="name"><label for="valor"><g:message code="doacoes.valor.label" default="Valor" /></label></td>
+								<td valign="top" class="value ${hasErrors(bean: doacoesInstance, field: 'valor', 'errors')}">
+									<input class="money" name="valor" value="${doacoesInstance?.valor}" />
 								</td>
 							</tr>
-				
+								
 							<tr class="prop">
-								<td valign="top" class="name"><label for="data"><g:message
-									code="doacoes.data.label" default="Data" /></label></td>
-								<td valign="top"
-									class="value ${hasErrors(bean: doacoesInstance, field: 'data', 'errors')}">
-								<calendar:datePicker name="data" value="${doacoesInstance?.data}" dateFormat="%d/%m/%Y %H:%M" showTime="false" ></calendar:datePicker>
-							</tr>
-								<tr class="prop">
-									<td valign="top" class="name"><label for="igreja"><g:message
-										code="doacoes.igreja.label" default="Igreja" /></label></td>
-									<td valign="top"
-										class="value ${hasErrors(bean: doacoesInstance, field: 'igreja', 'errors')}">
-									<g:select name="igreja.id"
-										from="${br.com.maxinfo.dizimo.Igreja.list()}" optionKey="id"
-										value="${doacoesInstance?.igreja?.id}" /></td>
-								</tr>
+                                <td valign="top" class="name">
+                                    <label for="igreja"><g:message code="doacoesInstance.igreja.label" default="Igreja" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: doacoesInstance, field: 'igreja', 'errors')}">
+									<input type="text" name="igreja" id="igreja" />
+		                        	<input type="hidden" name="igrejaId" id="igrejaId" />
+                                </td>
+                            </tr>
 				
 								<tr class="prop">
 									<td valign="top" class="name"><label for="descricao"><g:message

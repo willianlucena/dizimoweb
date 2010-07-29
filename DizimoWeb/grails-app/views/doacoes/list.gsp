@@ -21,33 +21,25 @@
                 <table>
                     <thead>
                         <tr>
-                        
-                            <g:sortableColumn property="id" title="${message(code: 'doacoes.id.label', default: 'Id')}" />
-                        
+                        	<th><g:message code="doacoes.igreja.label" default="Igreja" /></th>
+                        	<g:sortableColumn property="data" title="${message(code: 'doacoes.data.label', default: 'Data')}" />
                             <g:sortableColumn property="valor" title="${message(code: 'doacoes.valor.label', default: 'Valor')}" />
-                        
-                            <g:sortableColumn property="data" title="${message(code: 'doacoes.data.label', default: 'Data')}" />
-                        
-                            <th><g:message code="doacoes.igreja.label" default="Igreja" /></th>
-                   	    
                             <g:sortableColumn property="descricao" title="${message(code: 'doacoes.descricao.label', default: 'Descricao')}" />
-                        
+                       		<th>&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
                     <g:each in="${doacoesInstanceList}" status="i" var="doacoesInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        
-                            <td><g:link action="show" id="${doacoesInstance.id}">${fieldValue(bean: doacoesInstance, field: "id")}</g:link></td>
-                        
+                        	<td>${fieldValue(bean: doacoesInstance, field: "igreja")}</td>
+                        	<td><g:formatDate date="${doacoesInstance.data}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
                             <td>${fieldValue(bean: doacoesInstance, field: "valor")}</td>
-                        
-                            <td><g:formatDate date="${doacoesInstance.data}" /></td>
-                        
-                            <td>${fieldValue(bean: doacoesInstance, field: "igreja")}</td>
-                        
                             <td>${fieldValue(bean: doacoesInstance, field: "descricao")}</td>
-                        
+                        	<td class="actionButtons">
+                                <span class="actionButton">
+                                    <b><g:link action="show" id="${doacoesInstance.id}">Detalhes</g:link></b>
+								</span>
+                            </td>
                         </tr>
                     </g:each>
                     </tbody>

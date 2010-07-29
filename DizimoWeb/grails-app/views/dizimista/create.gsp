@@ -4,8 +4,27 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <calendar:resources lang="br" theme="tiger"/>
         <title>Cadastrar Dizimista</title>
+        <link type="text/css" rel="stylesheet" href="${createLinkTo(dir:'css',file:'jquery.autocomplete.css')}"></link>
+        <link type="text/css" rel="stylesheet" href="${createLinkTo(dir:'css',file:'jquery-ui-1.8.custom.css')}"></link>
+        
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery-1.4.2.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery-ui.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.bgiframe.min.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.autocomplete.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.price_format.1.3.js')}" ></script>
+        
+       
+         <script type="text/javascript">
+
+         	$(function() {
+	    		$(".data").datepicker(
+	    				{changeMonth:true, changeYear:true}
+	    	    );
+	    	});
+
+    	</script>
+
     </head>
     <body>
         <div class="nav">
@@ -97,7 +116,7 @@
                                   <label>Data Nascimento: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataNascimento', 'errors')}">
-                                    <calendar:datePicker name="dataNascimento" value="${usuarioInstance?.dataNascimento}" dateFormat="%d/%m/%Y %H:%M" showTime="false" ></calendar:datePicker>
+                                    <input readonly="readonly" class="data" name="dataNascimento" value="${usuarioInstance?.dataNascimento}" />
                                 </td>
                             </tr>
 
@@ -192,7 +211,7 @@
                                     <label for="dataCasamento"><g:message code="dizimista.dataCasamento.label" default="Data Casamento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: dizimistaInstance, field: 'dataCasamento', 'errors')}">
-                                    <calendar:datePicker name="dataCasamento" value="${dizimistaInstance?.dataCasamento}" dateFormat="%d/%m/%Y %H:%M" showTime="false" ></calendar:datePicker>
+                                    <input readonly="readonly" class="data" name="dataCasamento" value="${dizimistaInstance?.dataCasamento}" />
                                 </td>
                             </tr>
                         

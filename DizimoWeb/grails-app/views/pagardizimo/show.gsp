@@ -23,52 +23,33 @@
                     <tbody>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="pagardizimo.id.label" default="Id" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: pagardizimoInstance, field: "id")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="pagardizimo.dataPagamento.label" default="Data Pagamento" /></td>
-                            
-                            <td valign="top" class="value"><g:formatDate date="${pagardizimoInstance?.dataPagamento}" /></td>
-                            
+                            <td valign="top" class="value"><g:formatDate date="${pagardizimoInstance?.dataPagamento}" type="datetime" style="LONG" timeStyle="SHORT"/></td>
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="pagardizimo.valor.label" default="Valor" /></td>
-                            
                             <td valign="top" class="value">${fieldValue(bean: pagardizimoInstance, field: "valor")}</td>
-                            
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="pagardizimo.anoReferencia.label" default="Ano Referencia" /></td>
-                            
                             <td valign="top" class="value">${fieldValue(bean: pagardizimoInstance, field: "anoReferencia")}</td>
-                            
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="pagardizimo.mesReferencia.label" default="Mes Referencia" /></td>
-                            
                             <td valign="top" class="value">${fieldValue(bean: pagardizimoInstance, field: "mesReferencia")}</td>
-                            
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="pagardizimo.igreja.label" default="Igreja" /></td>
-                            
                             <td valign="top" class="value"><g:link controller="igreja" action="show" id="${pagardizimoInstance?.igreja?.id}">${pagardizimoInstance?.igreja?.encodeAsHTML()}</g:link></td>
-                            
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="pagardizimo.dizimista.label" default="Dizimista" /></td>
-                            
                             <td valign="top" class="value"><g:link controller="dizimista" action="show" id="${pagardizimoInstance?.dizimista?.id}">${pagardizimoInstance?.dizimista?.encodeAsHTML()}</g:link></td>
-                            
                         </tr>
                     
                     </tbody>

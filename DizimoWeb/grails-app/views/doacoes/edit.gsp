@@ -31,22 +31,18 @@
                         <tbody>
                         
                             <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="valor"><g:message code="doacoes.valor.label" default="Valor" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: doacoesInstance, field: 'valor', 'errors')}">
-                                    <input type="text" name="valor" value="${doacoesInstance?.valor}" />
-                                </td>
-                            </tr>
+								<td valign="top" class="name"><label for="valor"><g:message code="doacoes.valor.label" default="Valor" /></label></td>
+								<td valign="top" class="value ${hasErrors(bean: doacoesInstance, field: 'valor', 'errors')}">
+									<input class="money" name="valor" value="${doacoesInstance?.valor}" />
+								</td>
+							</tr>
                         
                             <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="data"><g:message code="doacoes.data.label" default="Data" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: doacoesInstance, field: 'data', 'errors')}">
-                                    <g:datePicker name="data" precision="day" value="${doacoesInstance?.data}"  />
-                                </td>
-                            </tr>
+								<td valign="top" class="name"><label for="data"><g:message code="doacoes.data.label" default="Data" /></label></td>
+								<td valign="top" class="value ${hasErrors(bean: doacoesInstance, field: 'data', 'errors')}">
+									<input readonly="readonly" class="data" name="data" value="${doacoesInstance?.data}"  />
+								</td>
+							</tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
