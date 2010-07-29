@@ -23,36 +23,28 @@
                     <thead>
                         <tr>
 
-                            <g:sortableColumn property="id" title="${message(code: 'dizimista.id.label', default: 'Id')}" />
-                        
-                            <th><g:message code="dizimista.usuario.label" default="Usuario" /></th>
-                   	    
-                            <g:sortableColumn property="dataCasamento" title="${message(code: 'dizimista.dataCasamento.label', default: 'Data Casamento')}" />
-                        
-                            <g:sortableColumn property="dataPrimeiroPagamento" title="${message(code: 'dizimista.dataPrimeiroPagamento.label', default: 'Data Primeiro Pagamento')}" />
-                        
+                            <g:sortableColumn property="nome" title="${message(code: 'dizimista.nome.label', default: 'Nome')}" />
                             <g:sortableColumn property="nomeConjuge" title="${message(code: 'dizimista.nomeConjuge.label', default: 'Nome Conjuge')}" />
-                        
-                            <g:sortableColumn property="dataAfastamento" title="${message(code: 'dizimista.dataAfastamento.label', default: 'Data Afastamento')}" />
-                        
+                            <g:sortableColumn property="dataCasamento" title="${message(code: 'dizimista.dataCasamento.label', default: 'Data Casamento')}" />
+                            <g:sortableColumn property="dataPrimeiroPagamento" title="${message(code: 'dizimista.dataPrimeiroPagamento.label', default: 'Data Primeiro Pagamento')}" />
+                            <g:sortableColumn property="endereco" title="${message(code: 'dizimista.endereco.label', default: 'Endereco')}" />
+                            <th>&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
                     <g:each in="${dizimistaInstanceList}" status="i" var="dizimistaInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="show" id="${dizimistaInstance.id}">${fieldValue(bean: dizimistaInstance, field: "id")}</g:link></td>
-                        
                             <td>${fieldValue(bean: dizimistaInstance, field: "usuario")}</td>
-                        
-                            <td><g:formatDate date="${dizimistaInstance.dataCasamento}" /></td>
-                        
-                            <td><g:formatDate date="${dizimistaInstance.dataPrimeiroPagamento}" /></td>
-                        
-                            <td>${fieldValue(bean: dizimistaInstance, field: "nomeConjuge")}</td>
-                        
-                            <td><g:formatDate date="${dizimistaInstance.dataAfastamento}" /></td>
-                        
+							<td>${fieldValue(bean: dizimistaInstance, field: "nomeConjuge")}</td>
+                            <td><g:formatDate date="${dizimistaInstance.dataCasamento}"  type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
+                            <td><g:formatDate date="${dizimistaInstance.dataPrimeiroPagamento}"  type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
+                            <td>${dizimistaInstance.endereco.logradouro}, ${dizimistaInstance.endereco.numero} - ${dizimistaInstance.endereco.bairro}, ${dizimistaInstance.endereco.cidade}-${dizimistaInstance.endereco.estado}, ${dizimistaInstance.endereco.pais}</td>
+                        	<td class="actionButtons">
+                                <span class="actionButton">
+                                    <b><g:link action="show" id="${dizimistaInstance.id}">Detalhes</g:link></b>
+								</span>
+                            </td>
                         </tr>
                     </g:each>
                     </tbody>

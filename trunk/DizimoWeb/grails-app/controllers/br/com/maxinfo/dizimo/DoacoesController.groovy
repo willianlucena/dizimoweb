@@ -20,6 +20,9 @@ class DoacoesController {
     }
 
     def save = {
+		params.data = new Date()
+		params.valor = PagardizimoController.getNumberFloat(params.valor)
+		params.igreja = Igreja.get(Long.parseLong(params.igrejaId))
         def doacoesInstance = new Doacoes(params)
         if (doacoesInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'doacoes.label', default: 'Doacoes'), doacoesInstance.id])}"

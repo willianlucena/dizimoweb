@@ -21,37 +21,29 @@
                 <table>
                     <thead>
                         <tr>
-                        
-                            <g:sortableColumn property="id" title="${message(code: 'pagardizimo.id.label', default: 'Id')}" />
-                        
-                            <g:sortableColumn property="dataPagamento" title="${message(code: 'pagardizimo.dataPagamento.label', default: 'Data Pagamento')}" />
-                        
-                            <g:sortableColumn property="valor" title="${message(code: 'pagardizimo.valor.label', default: 'Valor')}" />
-                        
-                            <g:sortableColumn property="anoReferencia" title="${message(code: 'pagardizimo.anoReferencia.label', default: 'Ano Referencia')}" />
-                        
-                            <g:sortableColumn property="mesReferencia" title="${message(code: 'pagardizimo.mesReferencia.label', default: 'Mes Referencia')}" />
-                        
+                            <th><g:message code="pagardizimo.dizimista.label" default="Dizimista" /></th>
                             <th><g:message code="pagardizimo.igreja.label" default="Igreja" /></th>
-                   	    
+                            <g:sortableColumn property="dataPagamento" title="${message(code: 'pagardizimo.dataPagamento.label', default: 'Data Pagamento')}" />
+                            <g:sortableColumn property="valor" title="${message(code: 'pagardizimo.valor.label', default: 'Valor')}" />
+                            <g:sortableColumn property="mesReferencia" title="${message(code: 'pagardizimo.mesReferencia.label', default: 'Mes Referencia')}" />
+                            <g:sortableColumn property="anoReferencia" title="${message(code: 'pagardizimo.anoReferencia.label', default: 'Ano Referencia')}" />
+                            <th>&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
                     <g:each in="${pagardizimoInstanceList}" status="i" var="pagardizimoInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        
-                            <td><g:link action="show" id="${pagardizimoInstance.id}">${fieldValue(bean: pagardizimoInstance, field: "id")}</g:link></td>
-                        
-                            <td><g:formatDate date="${pagardizimoInstance.dataPagamento}" /></td>
-                        
-                            <td>${fieldValue(bean: pagardizimoInstance, field: "valor")}</td>
-                        
-                            <td>${fieldValue(bean: pagardizimoInstance, field: "anoReferencia")}</td>
-                        
-                            <td>${fieldValue(bean: pagardizimoInstance, field: "mesReferencia")}</td>
-                        
+                         	<td>${fieldValue(bean: pagardizimoInstance, field: "dizimista")}</td>
                             <td>${fieldValue(bean: pagardizimoInstance, field: "igreja")}</td>
-                        
+                            <td><g:formatDate date="${pagardizimoInstance.dataPagamento}" type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
+                            <td>${fieldValue(bean: pagardizimoInstance, field: "valor")}</td>
+                            <td>${fieldValue(bean: pagardizimoInstance, field: "mesReferencia")}</td>
+	                        <td>${fieldValue(bean: pagardizimoInstance, field: "anoReferencia")}</td>
+	                        <td class="actionButtons">
+                                <span class="actionButton">
+                                    <b><g:link action="show" id="${pagardizimoInstance.id}">Detalhes</g:link></b>
+								</span>
+                            </td>
                         </tr>
                     </g:each>
                     </tbody>

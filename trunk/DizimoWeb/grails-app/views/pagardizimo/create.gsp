@@ -8,7 +8,10 @@
         <link type="text/css" rel="stylesheet" href="${createLinkTo(dir:'css',file:'jquery-ui-1.8.custom.css')}"></link>
         
         <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery-1.4.2.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery-ui.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.bgiframe.min.js')}" ></script>
         <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.autocomplete.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.price_format.1.3.js')}" ></script>
         
             <script type="text/javascript">
 			$(document).ready(function(){
@@ -54,10 +57,6 @@
     					});
     	  	});
 
-	  		$(function() {
-	    		$(".data").datepicker();
-	    	});
-	  		
 	        $(function(){
 	  			$(".money").priceFormat({
 		  		    prefix: 'R$ ',
@@ -97,7 +96,7 @@
                                     <label for="valor"><g:message code="pagardizimo.valor.label" default="Valor" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'valor', 'errors')}">
-                                    <input type="text" name="valor" value="${fieldValue(bean: pagardizimoInstance, field: 'valor')}" />
+                                    <input class="money" name="valor"  value="${pagardizimoInstance?.valor}"  />
                                 </td>
                             </tr>
                         
@@ -124,7 +123,6 @@
                                     <label for="igreja"><g:message code="pagardizimo.igreja.label" default="Igreja" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'igreja', 'errors')}">
-<!--                                    <g:select name="igreja.id" from="${br.com.maxinfo.dizimo.Igreja.list()}" optionKey="id" value="${pagardizimoInstance?.igreja?.id}"  />-->
 									<input type="text" name="igreja" id="igreja" />
 		                        	<input type="hidden" name="igrejaId" id="igrejaId" />
                                 </td>
@@ -135,7 +133,6 @@
                                     <label for="dizimista"><g:message code="pagardizimo.dizimista.label" default="Dizimista" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: pagardizimoInstance, field: 'dizimista', 'errors')}">
-<!--                                    <g:select name="dizimista.id" from="${br.com.maxinfo.dizimo.Dizimista.list()}" optionKey="id" value="${pagardizimoInstance?.dizimista?.id}"  />-->
 									<input type="text" name="dizimista" id="dizimista" />
 		                        	<input type="hidden" name="dizimistaId" id="dizimistaId" />
                                 </td>

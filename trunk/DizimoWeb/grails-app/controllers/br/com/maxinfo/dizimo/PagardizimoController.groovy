@@ -21,14 +21,22 @@ class PagardizimoController {
         pagardizimoInstance.properties = params
         return [pagardizimoInstance: pagardizimoInstance]
     }
-
+	
+	public static String getNumberFloat(String valor){
+		valor = valor.replace('R$ ', '')
+		valor = valor.replace('.', '')
+		valor = valor.replace(',', '.')
+		return valor
+	}
+	
     def save = {
         println params
-	def user = Usuario.get(Long.parseLong(params.dizimistaId))
-	def dizimista  = Dizimista.findByUsuario(user)
-	params.dizimista = dizimista
-	params.igreja = Igreja.get(Long.parseLong(params.igrejaId))
-	params.dataPagamento = new Date()
+		def user = Usuario.get(Long.parseLong(params.dizimistaId))
+		def dizimista  = Dizimista.findByUsuario(user)
+		params.dizimista = dizimista
+		params.valor = getNumberFloat(params.valor)
+		params.igreja = Igreja.get(Long.parseLong(params.igrejaId))
+		params.dataPagamento = new Date()
         def pagardizimoInstance = new Pagardizimo(params)
         if (pagardizimoInstance.save(flush: true)) {
             dizimista.dataPrimeiroPagamento = new Date()

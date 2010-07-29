@@ -4,7 +4,25 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="layout" content="main" />
-    <calendar:resources lang="br" theme="tiger"/>
+      <link type="text/css" rel="stylesheet" href="${createLinkTo(dir:'css',file:'jquery.autocomplete.css')}"></link>
+        <link type="text/css" rel="stylesheet" href="${createLinkTo(dir:'css',file:'jquery-ui-1.8.custom.css')}"></link>
+        
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery-1.4.2.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery-ui.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.bgiframe.min.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.autocomplete.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.price_format.1.3.js')}" ></script>
+        
+       
+         <script type="text/javascript">
+
+         	$(function() {
+	    		$(".data").datepicker(
+	    				{changeMonth:true, changeYear:true}
+	    	    );
+	    	});
+
+    	</script>
   <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
   <title><g:message code="default.create.label" args="[entityName]" /></title>
 </head>
@@ -77,12 +95,12 @@
             </tr>
 
             <tr class="prop">
-              <td valign="top" class="name">
-                <label for="dataNascimento"><g:message code="usuario.dataNascimento.label" default="Data Nascimento" /></label>
-              </td>
-              <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataNascimento', 'errors')}">
-                <calendar:datePicker name="dataNascimento" value="${usuarioInstance?.dataNascimento}" dateFormat="%d/%m/%Y %H:%M" showTime="false" ></calendar:datePicker>
-              </td>
+            	<td valign="top" class="name">
+                	<label>Data Nascimento: </label>
+                </td>
+                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataNascimento', 'errors')}">
+                	<input readonly="readonly" class="data" name="dataNascimento" value="${usuarioInstance?.dataNascimento}" />
+                </td>
             </tr>
 
           <tr class="prop">
