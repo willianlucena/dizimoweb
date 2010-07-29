@@ -34,9 +34,9 @@ class DizimistaController {
             println it
         }
         params.criadaEm = new Date()
-		params.igreja = session.igreja
-		params.passwd = authenticateService.encodePassword(params.passwd)
-		//TODO: implementar o relacionamento de igreja e user.
+        params.enabled = true
+	params.igreja = session.igreja
+	params.passwd = authenticateService.encodePassword(params.passwd)
         def usuarioInstance = new Usuario(params)
         usuarioInstance.save(flush: true)
 //        usuarioInstance.errors.each{
@@ -47,7 +47,7 @@ class DizimistaController {
         def dizimistaInstance = new Dizimista(params)
         println(params)
         if (dizimistaInstance.save(flush: true)) {
-			Permissao.findByAuthority("ROLE_DIZIMISTA").addToPeople(usuarioInstance)
+            Permissao.findByAuthority("ROLE_DIZIMISTA").addToPeople(usuarioInstance)
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), dizimistaInstance.id])}"
             redirect(action: "show", id: dizimistaInstance.id)
         }
@@ -134,25 +134,25 @@ class DizimistaController {
     }
 	
 	
-	//AJAX
-	def dizimistaAjax = {
-		println params
-		def query = {
-			eq("igreja", session.igreja)
-			and{
-				ilike("userRealName","%"+params.q+"%")
-				authorities{eq("authority","ROLE_DIZIMISTA")}
-			}
-		}
+    //AJAX
+    def dizimistaAjax = {
+        println params
+        def query = {
+                eq("igreja", session.igreja)
+                and{
+                        ilike("userRealName","%"+params.q+"%")
+                        authorities{eq("authority","ROLE_DIZIMISTA")}
+                }
+        }
 
-		def dizimista = Usuario.createCriteria().list(query)
+        def dizimista = Usuario.createCriteria().list(query)
 
-		//def users = 
-		println "dizimistas: " + dizimista
-		if (dizimista) {
-			render dizimista as JSON
-		} else {
-			response.sendError(400, "Dizimista não encontrado!");
-		}
-	}
+        //def users =
+        println "dizimistas: " + dizimista
+        if (dizimista) {
+                render dizimista as JSON
+        } else {
+                response.sendError(400, "Dizimista não encontrado!");
+        }
+    }
 }
