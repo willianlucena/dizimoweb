@@ -19,7 +19,6 @@
 				<div class="panelBody">
                                   <h1>Menu Principal</h1>
                                   <ul>
-
                                         <li class="controller"><g:link controller="dizimista">Administrar Dizimistas</g:link></li>
                                         <li class="controller"><g:link controller="igreja">Administrar Igrejas</g:link></li>
                                         <li class="controller"><g:link controller="login">Login</g:link></li>
@@ -29,6 +28,8 @@
                                         <ul>
                                         <li class="controller"><g:link controller="pagardizimo" action="create">Receber Pagamento</g:link></li>
                                         <li class="controller"><g:link controller="doacoes" action="create">Receber Doações</g:link></li>
+                                        <li class="controller"><g:link controller="doacoes" action="list">Lista de Doações</g:link></li>
+                                        <li class="controller"><g:link controller="pagardizimo" action="list">Lista de Pagamentos</g:link></li>
                                         </ul>
                                         <h1>Menu Administrativo</h1>
                                         <ul>
@@ -36,6 +37,11 @@
                                         <li class="controller"><g:link controller="permissao">Administrar Permissões</g:link></li>
                                         <li class="controller"><g:link controller="usuario">Administrar Usuários</g:link></li>
                                         <li class="controller"><g:link controller="endereco">Administrar Endereços</g:link></li>
+                                  </ul>
+                                        <h1>Menu Utilidades</h1>
+                                        <ul>
+                                        <li class="controller"><g:link controller="login">Aniversarianstes do Mês</g:link></li>
+                                        <li class="controller"><g:link controller="login">Aniversariantes de Casamento</g:link></li>
                                   </ul>
 				</div>
 				<div class="panelBtm">

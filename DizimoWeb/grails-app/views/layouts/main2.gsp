@@ -11,7 +11,7 @@
       <div id="spinner" class="spinner" style="display:none;">
             <img src="${resource(dir:'images',file:'spinner.gif')}" alt="Spinner" />
         </div>
-        <div id="grailsLogo" class="logo" align="middle"><a href="http://grails.org"><img src="${resource(dir:'images',file:'dizimo.png')}" alt="Grails" border="0" /></a></div>
+        <div id="grailsLogo" class="logo" align="middle"><a class="home" href="${createLink(uri: '/')}"><img src="${resource(dir:'images',file:'dizimo.png')}" alt="Grails" border="0" /></a></div>
                     <g:layoutBody />
     </body>
 </html>
