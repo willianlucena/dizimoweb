@@ -4,10 +4,13 @@ import br.com.maxinfo.dizimo.Usuario
 import br.com.maxinfo.dizimo.Endereco
 import grails.converters.JSON
 import org.grails.plugins.springsecurity.service.AuthenticateService
+import java.text.DateFormat
+import java.util.Date
+import java.text.SimpleDateFormat
 
 class DizimistaController {
-	
-	def authenticateService
+
+    def authenticateService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index = {
@@ -29,14 +32,15 @@ class DizimistaController {
 
     def save = {
         def enderecoInstance = new Endereco(params)
-        println "endereço: " + enderecoInstance.save(flush: true)
-        enderecoInstance.errors.each{
-            println it
-        }
+        enderecoInstance.save(flush: true)
         params.criadaEm = new Date()
         params.enabled = true
 	params.igreja = session.igreja
 	params.passwd = authenticateService.encodePassword(params.passwd)
+        try {
+            params.dataNascimento = new SimpleDateFormat("dd/MM/yyyy").parse(params.dataNascimento)
+            params.dataCasamento = new SimpleDateFormat("dd/MM/yyyy").parse(params.dataCasamento)
+        } catch(Exception e){}
         def usuarioInstance = new Usuario(params)
         usuarioInstance.save(flush: true)
 //        usuarioInstance.errors.each{
@@ -45,13 +49,11 @@ class DizimistaController {
         params.endereco = enderecoInstance
         params.usuario = usuarioInstance
         def dizimistaInstance = new Dizimista(params)
-        println(params)
         if (dizimistaInstance.save(flush: true)) {
             Permissao.findByAuthority("ROLE_DIZIMISTA").addToPeople(usuarioInstance)
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), dizimistaInstance.id])}"
             redirect(action: "show", id: dizimistaInstance.id)
-        }
-        else {
+        } else {
             render(view: "create", model: [dizimistaInstance: dizimistaInstance])
         }
     }
@@ -60,12 +62,11 @@ class DizimistaController {
         def dizimistaInstance = Dizimista.get(params.id)
         def enderecoInstance = Endereco.get(dizimistaInstance.endereco.id)
         def usuarioInstance = Usuario.get(dizimistaInstance.usuario.id)
-        
+
         if (!dizimistaInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), params.id])}"
             redirect(action: "list")
-        }
-        else {
+        } else {
             [dizimistaInstance: dizimistaInstance, enderecoInstance: enderecoInstance, usuarioInstance: usuarioInstance]
         }
     }
@@ -77,8 +78,7 @@ class DizimistaController {
         if (!dizimistaInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), params.id])}"
             redirect(action: "list")
-        }
-        else {
+        } else {
             return [dizimistaInstance: dizimistaInstance, enderecoInstance: enderecoInstance, usuarioInstance: usuarioInstance]
         }
     }
@@ -91,7 +91,7 @@ class DizimistaController {
             if (params.version) {
                 def version = params.version.toLong()
                 if (dizimistaInstance.version > version) {
-                    
+
                     dizimistaInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'dizimista.label', default: 'Dizimista')] as Object[], "Outro Usário está atualizando enqunto ")
                     render(view: "edit", model: [dizimistaInstance: dizimistaInstance, enderecoInstance: enderecoInstance, usuarioInstance: usuarioInstance])
                     return
@@ -103,12 +103,10 @@ class DizimistaController {
             if (!dizimistaInstance.hasErrors() && dizimistaInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), dizimistaInstance.id])}"
                 redirect(action: "show", id: dizimistaInstance.id)
-            }
-            else {
+            } else {
                 render(view: "edit", model: [dizimistaInstance: dizimistaInstance, , enderecoInstance: enderecoInstance, usuarioInstance: usuarioInstance])
             }
-        }
-        else {
+        } else {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), params.id])}"
             redirect(action: "list")
         }
@@ -121,19 +119,17 @@ class DizimistaController {
                 dizimistaInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), params.id])}"
                 redirect(action: "list")
-            }
-            catch (org.springframework.dao.DataIntegrityViolationException e) {
+            } catch (org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), params.id])}"
                 redirect(action: "show", id: params.id)
             }
-        }
-        else {
+        } else {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'dizimista.label', default: 'Dizimista'), params.id])}"
             redirect(action: "list")
         }
     }
-	
-	
+
+
     //AJAX
     def dizimistaAjax = {
         println params

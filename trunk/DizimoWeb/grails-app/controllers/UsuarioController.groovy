@@ -1,5 +1,8 @@
 import br.com.maxinfo.dizimo.Usuario
 import br.com.maxinfo.dizimo.Permissao
+import java.text.DateFormat
+import java.util.Date
+import java.text.SimpleDateFormat
 
 class UsuarioController {
 
@@ -86,7 +89,7 @@ class UsuarioController {
         if (!params.passwd.equals(oldPassword)) {
             usuarioInstance.passwd = authenticateService.encodePassword(params.passwd)
         }
-        
+
         if (!usuarioInstance.hasErrors() && usuarioInstance.save(flush: true)) {
             Permissao.findAll().each { it.removeFromPeople(usuarioInstance) }
             addRoles(usuarioInstance)
@@ -104,11 +107,14 @@ class UsuarioController {
     }
 
     def save = {
-		//TODO: implementar o relacionamento de igreja e user.
-		params.igreja = session.igreja
+
+	params.igreja = session.igreja
         params.passwd = authenticateService.encodePassword(params.passwd)
         params.enabled = true
         params.criadaEm = new Date()
+        try {
+            params.dataNascimento= new SimpleDateFormat("dd/MM/yyyy").parse(params.dataNascimento)
+        } catch(Exception e){}
         println params
         def usuarioInstance = new Usuario(params)
         if (usuarioInstance.save(flush: true)) {

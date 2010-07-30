@@ -1,19 +1,47 @@
 package br.com.maxinfo.dizimo
 
-import java.text.SimpleDateFormat
-import java.text.DateFormat
-
 class PagardizimoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    Igreja igreja
+    Usuario usuario
+
+    def beforeInterceptor = {
+        usuario = Usuario.get(session.user.id)
+	igreja =  Igreja.get(session.igreja.id)
+        println "Tracing action ${actionUri}"
+    }
 
     def index = {
         redirect(action: "list", params: params)
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [pagardizimoInstanceList: Pagardizimo.list(params), pagardizimoInstanceTotal: Pagardizimo.count()]
+//        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+//        [pagardizimoInstanceList: Pagardizimo.list(params), pagardizimoInstanceTotal: Pagardizimo.count()]
+        def result
+	def query = {}
+
+	if (!params.max) params.max = 10
+        if (!params.offset) params.offset = 0
+        if (!params.sort) params.sort = "id"
+        if (!params.order) params.order = "desc"
+        def p = Permissao.findByAuthority("ROLE_DIZIMISTA")
+        if (usuario.authorities.contains(p)) {
+            Dizimista dizimista = Dizimista.findByUsuario(usuario)
+            query = {
+                eq("igreja", igreja)
+                and {
+                    eq("dizimista", dizimista)
+                }
+            }
+            result = Pagardizimo.createCriteria().list(max: params.max, offset: params.offset, sort: params.sort, order: params.order, query)
+            render(view: "list", model: [pagardizimoInstanceList: result, pagardizimoInstanceTotal: result.totalCount])
+        } else {
+            query = { eq("igreja", igreja) }
+            result = Pagardizimo.createCriteria().list(max: params.max, offset: params.offset, sort: params.sort, order: params.order, query)
+            render(view: "list", model: [pagardizimoInstanceList: result, pagardizimoInstanceTotal: result.totalCount])
+        }
     }
 
     def create = {
@@ -21,14 +49,14 @@ class PagardizimoController {
         pagardizimoInstance.properties = params
         return [pagardizimoInstance: pagardizimoInstance]
     }
-	
+
 	public static String getNumberFloat(String valor){
 		valor = valor.replace('R$ ', '')
 		valor = valor.replace('.', '')
 		valor = valor.replace(',', '.')
 		return valor
 	}
-	
+
     def save = {
         println params
 		def user = Usuario.get(Long.parseLong(params.dizimistaId))
@@ -74,7 +102,7 @@ class PagardizimoController {
             if (params.version) {
                 def version = params.version.toLong()
                 if (pagardizimoInstance.version > version) {
-                    
+
                     pagardizimoInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'pagardizimo.label', default: 'Pagardizimo')] as Object[], "Another user has updated this Pagardizimo while you were editing")
                     render(view: "edit", model: [pagardizimoInstance: pagardizimoInstance])
                     return
