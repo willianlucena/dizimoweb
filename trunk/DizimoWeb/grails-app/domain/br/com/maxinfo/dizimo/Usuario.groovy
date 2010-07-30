@@ -43,5 +43,6 @@ class Usuario {
 		passwd(blank: false)
 		enabled()
 		igreja(nullable:true)
+                dataNascimento(nullable:true)
 	}
 }
