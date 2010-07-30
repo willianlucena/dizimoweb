@@ -21,35 +21,26 @@
                 <table>
                     <thead>
                         <tr>
-                        
-                            <g:sortableColumn property="id" title="${message(code: 'usuario.id.label', default: 'Id')}" />
-                        
-                            <g:sortableColumn property="username" title="${message(code: 'usuario.username.label', default: 'Username')}" />
-                        
-                            <g:sortableColumn property="userRealName" title="${message(code: 'usuario.userRealName.label', default: 'User Real Name')}" />
-                        
-                            
-                        
-                            <g:sortableColumn property="enabled" title="${message(code: 'usuario.enabled.label', default: 'Enabled')}" />
-                        
+                            <g:sortableColumn property="username" title="${message(code: 'usuario.username.label', default: 'Login')}" />
+                            <g:sortableColumn property="userRealName" title="${message(code: 'usuario.userRealName.label', default: 'Nome')}" />
+                            <g:sortableColumn property="enabled" title="${message(code: 'usuario.enabled.label', default: 'Ativo')}" />
                             <g:sortableColumn property="orgaoExpedidor" title="${message(code: 'usuario.orgaoExpedidor.label', default: 'Orgao Expedidor')}" />
-                        
+                            <th>&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
                     <g:each in="${usuarioInstanceList}" status="i" var="usuarioInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "id")}</g:link></td>
-                        
                             <td>${fieldValue(bean: usuarioInstance, field: "username")}</td>
-                        
                             <td>${fieldValue(bean: usuarioInstance, field: "userRealName")}</td>
-                                                    
-                            <td><g:formatBoolean boolean="${usuarioInstance.enabled}" /></td>
-                        
+                            <td><g:formatBoolean boolean="${usuarioInstance.enabled}" true="Sim" false="Não"/></td>
                             <td>${fieldValue(bean: usuarioInstance, field: "orgaoExpedidor")}</td>
-                        
+                            <td class="actionButtons">
+                                <span class="actionButton">
+                                    <b><g:link action="show" id="${usuarioInstance.id}">Detalhes</g:link></b>
+				</span>
+                            </td>
                         </tr>
                     </g:each>
                     </tbody>

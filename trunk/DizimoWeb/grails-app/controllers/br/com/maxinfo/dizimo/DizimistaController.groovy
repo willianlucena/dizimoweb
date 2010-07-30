@@ -59,7 +59,9 @@ class DizimistaController {
     }
 
     def show = {
+println params
         def dizimistaInstance = Dizimista.get(params.id)
+println dizimistaInstance
         def enderecoInstance = Endereco.get(dizimistaInstance.endereco.id)
         def usuarioInstance = Usuario.get(dizimistaInstance.usuario.id)
 

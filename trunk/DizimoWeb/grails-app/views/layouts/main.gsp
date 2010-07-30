@@ -31,9 +31,9 @@
                                             <g:ifAnyGranted role="ROLE_ADMIN, ROLE_SECRETARIO">
                                                 <li class="controller"><g:link controller="pagardizimo" action="create">Receber Pagamento</g:link></li>
                                                 <li class="controller"><g:link controller="doacoes" action="create">Receber Doações</g:link></li>
+				                                <li class="controller"><g:link controller="doacoes" action="list">Listar Doações</g:link></li>
                                             </g:ifAnyGranted>
                                             <li class="controller"><g:link controller="pagardizimo" action="list">Listar Pagamentos</g:link></li>
-                                            <li class="controller"><g:link controller="doacoes" action="list">Listar Doações</g:link></li>
                                         </ul>
                                         <g:ifAnyGranted role="ROLE_ADMIN, ROLE_SECRETARIO">
                                             <h1>Menu Administrativo</h1>

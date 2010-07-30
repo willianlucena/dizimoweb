@@ -23,49 +23,27 @@
 
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="igreja.id.label" default="Id" /></td>
-
                             <td valign="top" class="value">${fieldValue(bean: igrejaInstance, field: "id")}</td>
-
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="igreja.doacoes.label" default="Doacoes" /></td>
-
-                            <td valign="top" style="text-align: left;" class="value">
-                                <ul>
-                                <g:each in="${igrejaInstance.doacoes}" var="d">
-                                    <li><g:link controller="doacoes" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>
-                                </g:each>
-                                </ul>
-                            </td>
-
+                            <td valign="top" class="value"><g:link controller="doacoes" action="list" id="${igrejaInstance?.id}">Listar</g:link></td>
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="igreja.nome.label" default="Nome" /></td>
-
                             <td valign="top" class="value">${fieldValue(bean: igrejaInstance, field: "nome")}</td>
-
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="igreja.endereco.label" default="Endereco" /></td>
-
-                            <td valign="top" class="value"><g:link controller="endereco" action="show" id="${igrejaInstance?.endereco?.id}">${igrejaInstance?.endereco?.encodeAsHTML()}</g:link></td>
-
+                            <td valign="top" class="value"><g:link controller="endereco" action="show" id="${igrejaInstance?.endereco?.id}">${igrejaInstance?.endereco?.logradouro?.encodeAsHTML()}</g:link></td>
                         </tr>
 
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="igreja.pagardizimos.label" default="Pagardizimos" /></td>
-
-                            <td valign="top" style="text-align: left;" class="value">
-                                <ul>
-                                <g:each in="${igrejaInstance.pagardizimos}" var="p">
-                                    <li><g:link controller="pagardizimo" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-                                </g:each>
-                                </ul>
-                            </td>
-
+                            <td valign="top" class="name"><g:message code="igreja.pagardizimos.label" default="Dizimos" /></td>
+                            <td valign="top" class="value"><g:link controller="pagardizimo" action="list">Listar</g:link></td>
                         </tr>
 
                     </tbody>

@@ -36,14 +36,15 @@
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
                             <td>${fieldValue(bean: dizimistaInstance, field: "usuario")}</td>
-							<td>${fieldValue(bean: dizimistaInstance, field: "nomeConjuge")}</td>
+
+                            <td>${fieldValue(bean: dizimistaInstance, field: "nomeConjuge")}</td>
                             <td><g:formatDate date="${dizimistaInstance.dataCasamento}"  type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
                             <td><g:formatDate date="${dizimistaInstance.dataPrimeiroPagamento}"  type="datetime" style="MEDIUM" timeStyle="SHORT"/></td>
                             <td>${dizimistaInstance.endereco.logradouro}, ${dizimistaInstance.endereco.numero} - ${dizimistaInstance.endereco.bairro}, ${dizimistaInstance.endereco.cidade}-${dizimistaInstance.endereco.estado}, ${dizimistaInstance.endereco.pais}</td>
-                        	<td class="actionButtons">
+                            <td class="actionButtons">
                                 <span class="actionButton">
                                     <b><g:link action="show" id="${dizimistaInstance.id}">Detalhes</g:link></b>
-								</span>
+				</span>
                             </td>
                         </tr>
                     </g:each>

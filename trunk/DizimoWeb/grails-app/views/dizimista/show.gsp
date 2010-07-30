@@ -11,8 +11,6 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}">Página Inicial</a></span>
-            <span class="menuButton"><g:link class="list" action="list">Listar Dizimistas</g:link></span>
-            <span class="menuButton"><g:link class="create" action="create">Cadastrar Dizimista</g:link></span>
         </div>
         <div class="body">
               <h1>Detalhes do Dizimista</h1>
@@ -47,7 +45,7 @@
                         <tr class="prop">
                             <td valign="top" class="name">Ativo: </td>
 
-                            <td valign="top" class="value"><g:formatBoolean boolean="${usuarioInstance?.enabled}" /></td>
+                            <td valign="top" class="value"><g:formatBoolean boolean="${usuarioInstance?.enabled}" true="Sim" false="Não"/></td>
 
                         </tr>
 
@@ -82,7 +80,7 @@
                         <tr class="prop">
                             <td valign="top" class="name">Data de Nascimento: </td>
 
-                            <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataNascimento}" /></td>
+                            <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataNascimento}" type="datetime" style="LONG" timeStyle="SHORT"/></td>
 
                         </tr>
 
@@ -159,7 +157,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="dizimista.dataCasamento.label" default="Data Casamento" /></td>
                             
-                            <td valign="top" class="value"><g:formatDate date="${dizimistaInstance?.dataCasamento}" /></td>
+                            <td valign="top" class="value"><g:formatDate date="${dizimistaInstance?.dataCasamento}" type="datetime" style="LONG" timeStyle="SHORT"/></td>
                             
                         </tr>
                     
@@ -180,21 +178,13 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="dizimista.dataAfastamento.label" default="Data Afastamento" /></td>
                             
-                            <td valign="top" class="value"><g:formatDate date="${dizimistaInstance?.dataAfastamento}" /></td>
+                            <td valign="top" class="value"><g:formatDate date="${dizimistaInstance?.dataAfastamento}" type="datetime" style="LONG" timeStyle="SHORT"/></td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="dizimista.pagardizimos.label" default="Pagardizimos" /></td>
-                            
-                            <td valign="top" style="text-align: left;" class="value">
-                                <ul>
-                                <g:each in="${dizimistaInstance.pagardizimos}" var="p">
-                                    <li><g:link controller="pagardizimo" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-                                </g:each>
-                                </ul>
-                            </td>
-                            
+                            <td valign="top" class="name"><g:message code="igreja.pagardizimos.label" default="Dizimos" /></td>
+                            <td valign="top" class="value"><g:link controller="pagardizimo" action="list">Listar</g:link></td>
                         </tr>
                     
                     </tbody>
