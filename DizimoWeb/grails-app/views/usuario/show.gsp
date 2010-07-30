@@ -30,23 +30,23 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.username.label" default="Username" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.username.label" default="Login" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "username")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.userRealName.label" default="User Real Name" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.userRealName.label" default="Nome Completo" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "userRealName")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.enabled.label" default="Enabled" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.enabled.label" default="Ativo" /></td>
                             
-                            <td valign="top" class="value"><g:formatBoolean boolean="${usuarioInstance?.enabled}" /></td>
+                            <td valign="top" class="value"><g:formatBoolean boolean="${usuarioInstance?.enabled}" true="Sim" false="Não"/></td>
                             
                         </tr>
                     
@@ -58,14 +58,14 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.criadaEm.label" default="Criada Em" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.criadaEm.label" default="Data de criação" /></td>
                             
                             <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.criadaEm}" /></td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.authorities.label" default="Authorities" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.authorities.label" default="Permissões" /></td>
                             
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
@@ -92,7 +92,7 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.dataNascimento.label" default="Data Nascimento" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.dataNascimento.label" default="Data de Nascimento" /></td>
                             
                             <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataNascimento}" /></td>
                             

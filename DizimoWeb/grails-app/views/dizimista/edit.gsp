@@ -4,13 +4,31 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
+        <link type="text/css" rel="stylesheet" href="${createLinkTo(dir:'css',file:'jquery.autocomplete.css')}"></link>
+        <link type="text/css" rel="stylesheet" href="${createLinkTo(dir:'css',file:'jquery-ui-1.8.custom.css')}"></link>
+        
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery-1.4.2.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery-ui.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.bgiframe.min.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.autocomplete.js')}" ></script>
+        <script type="text/javascript" src="${createLinkTo(dir:'js/jquery',file:'jquery.price_format.1.3.js')}" ></script>
+        
+       
+         <script type="text/javascript">
+
+         	$(function() {
+	    		$(".data").datepicker(
+	    				{changeMonth:true, changeYear:true}
+	    	    );
+	    	});
+
+    	</script>
+
         <title>Edição de Cadastro do Dizimista</title>
     </head>
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}">Página Inicial</a></span>
-            <span class="menuButton"><g:link class="list" action="list">Listar Dizimistas</g:link></span>
-            <span class="menuButton"><g:link class="create" action="create">Novo</g:link></span>
         </div>
         <div class="body">
             <h1>Edição de Cadastro do Dizimista</h1>
@@ -52,7 +70,7 @@
                                   <label>Senha: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'passwd', 'errors')}">
-                                    <g:textField name="passwd" value="${usuarioInstance?.passwd}" />
+                                    <input type="password" name="passwd" value="${usuarioInstance?.passwd}" />
                                 </td>
                             </tr>
 
@@ -111,10 +129,10 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label>Data de Nascimento: </label>
+                                  <label>Data Nascimento: </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataNascimento', 'errors')}">
-                                    <g:datePicker name="dataNascimento" precision="day" value="${usuarioInstance?.dataNascimento}"  />
+                                    <input readonly="readonly" class="data" name="dataNascimento" value="${usuarioInstance?.dataNascimento}" />
                                 </td>
                             </tr>
 
@@ -205,10 +223,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label>Data de Casamento: </label>
+                                    <label for="dataCasamento"><g:message code="dizimista.dataCasamento.label" default="Data Casamento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: dizimistaInstance, field: 'dataCasamento', 'errors')}">
-                                    <g:datePicker name="dataCasamento" precision="day" value="${dizimistaInstance?.dataCasamento}"  />
+                                    <input readonly="readonly" class="data" name="dataCasamento" value="${dizimistaInstance?.dataCasamento}" />
                                 </td>
                             </tr>
                         
@@ -218,15 +236,6 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: dizimistaInstance, field: 'nomeConjuge', 'errors')}">
                                     <input type="text" name="nomeConjuge" value="${dizimistaInstance?.nomeConjuge}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label>Data de Afastamento: </label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: dizimistaInstance, field: 'dataAfastamento', 'errors')}">
-                                    <g:datePicker name="dataAfastamento" precision="day" value="${dizimistaInstance?.dataAfastamento}"  />
                                 </td>
                             </tr>
                         

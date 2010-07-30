@@ -7,6 +7,9 @@ import org.springframework.security.context.SecurityContextHolder as SCH
 import org.springframework.security.ui.AbstractProcessingFilter
 import org.springframework.security.ui.webapp.AuthenticationProcessingFilter
 import br.com.maxinfo.dizimo.Usuario
+import br.com.maxinfo.dizimo.Permissao
+import br.com.maxinfo.dizimo.Dizimista
+
 /**
      * Login Controller (Example).
  */
@@ -51,8 +54,15 @@ class LoginController {
 				session.igreja = session.user.igreja
 			}
 			println session.igreja
-			redirect(controller: "dizimista")
-			return
+        	def p = Permissao.findByAuthority("ROLE_DIZIMISTA")
+	        if (session.user.authorities.contains(p)) {
+				params.id = Dizimista.findByUsuario(session.user).id
+				redirect(controller: "dizimista", action:"show", params:params)
+				return
+			} else {
+				redirect(controller: "dizimista")
+				return
+			}
         }
 
 		String view

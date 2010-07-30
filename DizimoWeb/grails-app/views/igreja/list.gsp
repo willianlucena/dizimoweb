@@ -22,24 +22,22 @@
                     <thead>
                         <tr>
 
-                            <g:sortableColumn property="id" title="${message(code: 'igreja.id.label', default: 'Id')}" />
-
                             <g:sortableColumn property="nome" title="${message(code: 'igreja.nome.label', default: 'Nome')}" />
-
                             <th><g:message code="igreja.endereco.label" default="Endereco" /></th>
-
+                            <th>&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
                     <g:each in="${igrejaInstanceList}" status="i" var="igrejaInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                            <td><g:link action="show" id="${igrejaInstance.id}">${fieldValue(bean: igrejaInstance, field: "id")}</g:link></td>
-
                             <td>${fieldValue(bean: igrejaInstance, field: "nome")}</td>
-
                             <td>${igrejaInstance.endereco.logradouro}, ${igrejaInstance.endereco.numero} - ${igrejaInstance.endereco.bairro}, ${igrejaInstance.endereco.cidade}-${igrejaInstance.endereco.estado}, ${igrejaInstance.endereco.pais}</td>
-
+                            <td class="actionButtons">
+                                <span class="actionButton">
+                                    <b><g:link action="show" id="${igrejaInstance.id}">Detalhes</g:link></b>
+				</span>
+                            </td>
                         </tr>
                     </g:each>
                     </tbody>
