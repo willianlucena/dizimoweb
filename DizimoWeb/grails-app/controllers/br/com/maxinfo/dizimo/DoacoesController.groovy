@@ -9,8 +9,18 @@ class DoacoesController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [doacoesInstanceList: Doacoes.list(params), doacoesInstanceTotal: Doacoes.count()]
+//        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+//        [doacoesInstanceList: Doacoes.list(params), doacoesInstanceTotal: Doacoes.count()]
+        def result
+	def query = {}
+
+	if (!params.max) params.max = 10
+        if (!params.offset) params.offset = 0
+        if (!params.sort) params.sort = "id"
+        if (!params.order) params.order = "desc"
+        query = { eq("igreja", session.igreja) }
+        result = Doacoes.createCriteria().list(max: params.max, offset: params.offset, sort: params.sort, order: params.order, query)
+        render(view: "list", model: [doacoesInstanceList: result, doacoesInstanceTotal: result.totalCount])
     }
 
     def create = {
@@ -20,9 +30,9 @@ class DoacoesController {
     }
 
     def save = {
-		params.data = new Date()
-		params.valor = PagardizimoController.getNumberFloat(params.valor)
-		params.igreja = Igreja.get(Long.parseLong(params.igrejaId))
+	params.data = new Date()
+	params.valor = PagardizimoController.getNumberFloat(params.valor)
+	params.igreja = Igreja.get(Long.parseLong(params.igrejaId))
         def doacoesInstance = new Doacoes(params)
         if (doacoesInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'doacoes.label', default: 'Doacoes'), doacoesInstance.id])}"
@@ -61,7 +71,7 @@ class DoacoesController {
             if (params.version) {
                 def version = params.version.toLong()
                 if (doacoesInstance.version > version) {
-                    
+
                     doacoesInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'doacoes.label', default: 'Doacoes')] as Object[], "Another user has updated this Doacoes while you were editing")
                     render(view: "edit", model: [doacoesInstance: doacoesInstance])
                     return
