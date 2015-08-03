@@ -1,0 +1,1 @@
+Sistema de Gerenciamento Financeiro para Paróquias.
